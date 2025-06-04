@@ -2,6 +2,8 @@ import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 import { ExampleContainer } from '../containers';
 
+import { MainLayout } from '../components/templates';
+
 const Router = createBrowserRouter([
   {
     element: (
@@ -10,7 +12,7 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'Example',
+        path: '/',
         Component: ExampleContainer,
       },
     ],
@@ -18,11 +20,11 @@ const Router = createBrowserRouter([
   {
     element: (
       // Protected Route
-      <Outlet />
+      <MainLayout />
     ),
     children: [
       {
-        path: '/',
+        path: 'Example',
         Component: ExampleContainer,
       },
     ],
