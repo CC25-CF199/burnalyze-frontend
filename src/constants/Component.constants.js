@@ -7,7 +7,7 @@ export const navItems = [
   {
     title: 'Beranda',
     iconPath: home,
-    linkTo: '/home',
+    linkTo: '/',
   },
   {
     title: 'Deteksi',

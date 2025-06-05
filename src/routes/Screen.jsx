@@ -1,6 +1,6 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-import { ExampleContainer } from '../containers';
+import { ExampleContainer, DetectionContainer } from '../containers';
 
 import { MainLayout } from '../components/templates';
 
@@ -12,7 +12,7 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/',
+        path: '/example',
         Component: ExampleContainer,
       },
     ],
@@ -24,8 +24,12 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'Example',
+        path: '/',
         Component: ExampleContainer,
+      },
+      {
+        path: 'detection',
+        Component: DetectionContainer,
       },
     ],
   },

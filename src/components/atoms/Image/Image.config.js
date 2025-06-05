@@ -31,6 +31,13 @@ const styleConfig = {
       width: 'auto',
     },
   },
+  detectionHeaderImg: {
+    sx: {
+      height: 124,
+      width: 'auto',
+      mb: 1,
+    },
+  },
 };
 
 export { styleConfig };
