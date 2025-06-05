@@ -6,8 +6,9 @@ const MainContent = ({ children }) => {
       component="main"
       sx={{
         flexGrow: 1,
-        height: 'auto',
-        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'auto',
         padding: { xs: 2, md: 3 },
       }}
     >

@@ -15,6 +15,8 @@ const MainLayoutComponent = () => {
     <Box
       sx={{
         height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       <Navbar handleOpenDrawer={handleOpenDrawer} />

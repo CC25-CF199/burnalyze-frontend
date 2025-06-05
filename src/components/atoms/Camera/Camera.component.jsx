@@ -6,24 +6,16 @@ import { PhotoCamera, Camera, Refresh } from '@mui/icons-material';
 const CameraComponent = () => {
   const camRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
-  const [isCameraOpen, setIsCameraOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const startCamera = useCallback(() => {
-    setIsLoading(true);
-    setIsCameraOpen(prevState => !prevState);
-  }, []);
+  const [isLoading, setIsLoading] = useState(true);
 
   const capture = useCallback(() => {
     const imageSrc = camRef.current.getScreenshot();
     setImgSrc(imageSrc);
-    setIsCameraOpen(prevState => !prevState);
   }, [camRef, setImgSrc]);
 
   const retake = useCallback(() => {
     setIsLoading(true);
     setImgSrc(null);
-    setIsCameraOpen(true);
   }, []);
 
   const handleUserMedia = useCallback(() => {
@@ -39,23 +31,7 @@ const CameraComponent = () => {
         position: 'relative',
       }}
     >
-      {!isCameraOpen && !imgSrc && (
-        <Button
-          variant="contained"
-          onClick={startCamera}
-          startIcon={<PhotoCamera />}
-          sx={{
-            width: '100%',
-            color: '#FFF',
-            fontWeight: 600,
-            borderRadius: '8px',
-            boxShadow: 3,
-          }}
-        >
-          Buka Kamera
-        </Button>
-      )}
-      {isCameraOpen && (
+      {!imgSrc ? (
         <>
           {isLoading && (
             <Box
@@ -93,8 +69,7 @@ const CameraComponent = () => {
             Ambil Foto
           </Button>
         </>
-      )}
-      {imgSrc && (
+      ) : (
         <>
           <img
             src={imgSrc}

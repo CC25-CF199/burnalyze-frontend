@@ -1,6 +1,10 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-import { ExampleContainer, DetectionContainer } from '../containers';
+import {
+  ExampleContainer,
+  DetectionContainer,
+  CameraContainer,
+} from '../containers';
 
 import { MainLayout } from '../components/templates';
 
@@ -30,6 +34,10 @@ const Router = createBrowserRouter([
       {
         path: 'detection',
         Component: DetectionContainer,
+      },
+      {
+        path: 'camera',
+        Component: CameraContainer,
       },
     ],
   },
