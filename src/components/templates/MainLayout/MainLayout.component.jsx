@@ -12,7 +12,11 @@ const MainLayoutComponent = () => {
   };
 
   return (
-    <Box>
+    <Box
+      sx={{
+        height: '100%',
+      }}
+    >
       <Navbar handleOpenDrawer={handleOpenDrawer} />
       <Drawer isDrawerOpen={isDrawerOpen} handleOpenDrawer={handleOpenDrawer} />
       <MainContent>

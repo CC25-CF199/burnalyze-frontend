@@ -18,10 +18,11 @@ const DetectionHeader = () => {
         variant="h6"
         component="h1"
         sx={{
+          fontSize: { xs: '14px', md: '24px' },
           color: 'primary.main',
           fontWeight: 700,
           lineHeight: '1.2',
-          mb: 1,
+          mb: 0.5,
         }}
       >
         Deteksi cerdas dan klasifikasi luka bakar
@@ -29,6 +30,7 @@ const DetectionHeader = () => {
       <Typography
         variant="body2"
         sx={{
+          fontSize: { xs: '12px', md: '18px' },
           lineHeight: '1.5',
         }}
       >
