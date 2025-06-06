@@ -1,8 +1,13 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-import { ExampleContainer, DetectionContainer } from '../containers';
+import {
+  ExampleContainer,
+  DetectionContainer,
+  DetectionResultContainer,
+  CameraContainer,
+} from '../containers';
 
-import { MainLayout } from '../components/templates';
+import { MainLayout, ProtectedResult } from '../components/templates';
 
 const Router = createBrowserRouter([
   {
@@ -29,7 +34,24 @@ const Router = createBrowserRouter([
       },
       {
         path: 'detection',
-        Component: DetectionContainer,
+        children: [
+          {
+            path: '',
+            Component: DetectionContainer,
+          },
+          {
+            path: 'camera',
+            Component: CameraContainer,
+          },
+          {
+            path: 'result',
+            element: (
+              <ProtectedResult>
+                <DetectionResultContainer />
+              </ProtectedResult>
+            ),
+          },
+        ],
       },
     ],
   },

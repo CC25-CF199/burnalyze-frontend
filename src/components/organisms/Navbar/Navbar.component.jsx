@@ -8,7 +8,7 @@ import { navItems } from '../../../constants/Component.constants';
 
 function ResponsiveAppBar({ handleOpenDrawer }) {
   return (
-    <AppBar position="static" color="secondary">
+    <AppBar position="sticky" color="secondary">
       <Container
         maxWidth="xl"
         sx={{
