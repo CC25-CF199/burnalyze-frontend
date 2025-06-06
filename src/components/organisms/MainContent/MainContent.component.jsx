@@ -10,7 +10,11 @@ const MainContent = ({ children }) => {
         // flexDirection: 'column',
         // overflow: 'auto',
         height: '100%',
-        padding: { xs: 2, md: 3 },
+        padding: {
+          xs: 2,
+          sm: '16px 10em 16px 10em',
+          md: '16px 18em 16px 18em',
+        },
       }}
     >
       {children}

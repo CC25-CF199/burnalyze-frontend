@@ -11,11 +11,11 @@ const Card = ({ title, content }) => {
         borderRadius: '8px',
         color: 'secondary.main',
         paddingBlock: 1,
-        paddingInline: 1,
+        paddingInline: 2,
         boxShadow: 3,
       }}
     >
-      <Info sx={{ mr: 1 }} />
+      <Info sx={{ mr: 2 }} />
       <Box>
         <Typography
           variant="subtitle2"
