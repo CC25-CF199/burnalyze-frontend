@@ -1,6 +1,8 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-import { ExampleContainer } from '../containers';
+import { ExampleContainer, DetectionContainer } from '../containers';
+
+import { MainLayout } from '../components/templates';
 
 const Router = createBrowserRouter([
   {
@@ -10,7 +12,7 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'Example',
+        path: '/example',
         Component: ExampleContainer,
       },
     ],
@@ -18,12 +20,16 @@ const Router = createBrowserRouter([
   {
     element: (
       // Protected Route
-      <Outlet />
+      <MainLayout />
     ),
     children: [
       {
         path: '/',
         Component: ExampleContainer,
+      },
+      {
+        path: 'detection',
+        Component: DetectionContainer,
       },
     ],
   },

@@ -5,6 +5,10 @@ const theme = createTheme({
     primary: {
       main: '#01CEE1',
     },
+    secondary: {
+      main: '#FFF',
+      grayishBlue: '#393E46',
+    },
   },
   typography: {
     fontFamily: [
