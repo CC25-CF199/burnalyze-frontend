@@ -12,7 +12,13 @@ const MainLayoutComponent = () => {
   };
 
   return (
-    <Box>
+    <Box
+      sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <Navbar handleOpenDrawer={handleOpenDrawer} />
       <Drawer isDrawerOpen={isDrawerOpen} handleOpenDrawer={handleOpenDrawer} />
       <MainContent>

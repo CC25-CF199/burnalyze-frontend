@@ -33,9 +33,22 @@ const styleConfig = {
   },
   detectionHeaderImg: {
     sx: {
-      height: 124,
+      height: { xs: 80, md: 200 },
       width: 'auto',
       mb: 1,
+    },
+  },
+  scanCompleteUserImg: {
+    sx: {
+      height: { xs: '56px' },
+      width: { xs: '56px' },
+      borderRadius: '8px',
+    },
+  },
+  scanCompleteIcon: {
+    sx: {
+      height: { xs: '36px' },
+      width: 'auto',
     },
   },
 };

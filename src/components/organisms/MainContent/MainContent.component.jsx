@@ -5,8 +5,12 @@ const MainContent = ({ children }) => {
     <Box
       component="main"
       sx={{
-        paddingInline: '20px',
-        paddingBlock: '24px',
+        // flexGrow: 1,
+        // display: 'flex',
+        // flexDirection: 'column',
+        // overflow: 'auto',
+        height: '100%',
+        padding: { xs: 2, md: 3 },
       }}
     >
       {children}
