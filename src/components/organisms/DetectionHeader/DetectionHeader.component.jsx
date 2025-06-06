@@ -18,7 +18,7 @@ const DetectionHeader = () => {
         variant="h6"
         component="h1"
         sx={{
-          fontSize: { xs: '14px', md: '24px' },
+          fontSize: { xs: '12px', md: '24px' },
           color: 'primary.main',
           fontWeight: 700,
           lineHeight: '1.2',
@@ -30,8 +30,8 @@ const DetectionHeader = () => {
       <Typography
         variant="body2"
         sx={{
-          fontSize: { xs: '12px', md: '18px' },
-          lineHeight: '1.5',
+          fontSize: { xs: '10px', md: '18px' },
+          lineHeight: '1.2',
         }}
       >
         Deteksi dan kategorikan luka bakar pada kulit secara instan menggunakan

@@ -3,6 +3,8 @@
 @theme {
   --color-primaryBlue: #01cee1;
   --color-secondaryWhite: #fff;
+
+  --font-metropolis: 'Metropolis';
 }
 
 html,

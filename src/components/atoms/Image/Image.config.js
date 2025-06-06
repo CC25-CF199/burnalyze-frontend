@@ -33,7 +33,7 @@ const styleConfig = {
   },
   detectionHeaderImg: {
     sx: {
-      height: { xs: 100, md: 200 },
+      height: { xs: 80, md: 200 },
       width: 'auto',
       mb: 1,
     },
