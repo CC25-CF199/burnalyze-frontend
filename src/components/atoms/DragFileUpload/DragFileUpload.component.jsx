@@ -1,13 +1,14 @@
-import { useState } from 'react';
 import { CloudUploadOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
 import { Box, Button } from '@mui/material';
 
 const { Dragger } = Upload;
 
-const DragFileUploadComponent = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
-
+const DragFileUploadComponent = ({
+  uploadedImage,
+  setUploadedImage,
+  onUploadImage,
+}) => {
   const props = {
     name: 'file',
     multiple: false,
@@ -17,28 +18,16 @@ const DragFileUploadComponent = () => {
         message.error('Anda hanya dapat mengunggah gambar!');
         return Upload.LIST_IGNORE;
       }
-      setSelectedFile(file);
+      setUploadedImage(file);
       return false;
     },
     onDrop(e) {
       const file = e.dataTransfer.files[0];
       if (file.type.startsWith('image/')) {
-        setSelectedFile(file);
+        setUploadedImage(file);
       }
       console.log('Dropped files', e.dataTransfer.files);
     },
-  };
-
-  const handleProcessImage = () => {
-    if (!selectedFile) {
-      message.error('Please select an image first');
-      return;
-    }
-
-    const fd = new FormData();
-    fd.append('wound-img', selectedFile);
-
-    // Add API call
   };
 
   return (
@@ -76,8 +65,8 @@ const DragFileUploadComponent = () => {
 
       <Button
         variant="contained"
-        onClick={handleProcessImage}
-        disabled={!selectedFile}
+        onClick={onUploadImage}
+        disabled={!uploadedImage}
         sx={{
           width: '100%',
           color: '#FFF',

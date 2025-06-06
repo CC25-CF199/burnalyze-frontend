@@ -1,17 +1,25 @@
 import { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import { Box, Button, CircularProgress } from '@mui/material';
-import { PhotoCamera, Camera, Refresh } from '@mui/icons-material';
+import { Camera, Refresh } from '@mui/icons-material';
+
+import dataURLtoFile from '../../../utils/dataURLtoFile';
+import generateRandomFilename from '../../../utils/generateRandonFilename';
 
 const CameraComponent = () => {
   const camRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const capture = useCallback(() => {
     const imageSrc = camRef.current.getScreenshot();
     setImgSrc(imageSrc);
-  }, [camRef, setImgSrc]);
+
+    const filename = generateRandomFilename();
+    const imageFile = dataURLtoFile(imageSrc, filename);
+    setUploadedImage(imageFile);
+  }, [camRef]);
 
   const retake = useCallback(() => {
     setIsLoading(true);
@@ -21,6 +29,15 @@ const CameraComponent = () => {
   const handleUserMedia = useCallback(() => {
     setIsLoading(false);
   }, []);
+
+  const handleUploadImage = () => {
+    const fd = new FormData();
+    fd.append('wound-img', uploadedImage);
+
+    console.log(fd.get('wound-img'));
+
+    // API call here
+  };
 
   return (
     <Box
@@ -88,9 +105,23 @@ const CameraComponent = () => {
               color: '#FFF',
               borderRadius: '0 0 8px 8px',
               boxShadow: 3,
+              mb: 2,
             }}
           >
-            Retake Photo
+            Ambil Ulang
+          </Button>
+          <Button
+            variant="contained"
+            onClick={handleUploadImage}
+            sx={{
+              width: '100%',
+              color: '#FFF',
+              fontWeight: 600,
+              borderRadius: '8px',
+              boxShadow: 3,
+            }}
+          >
+            Analisa Gambar
           </Button>
         </>
       )}

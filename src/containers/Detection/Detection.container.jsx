@@ -1,15 +1,22 @@
+import { useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { PhotoCamera } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 
-import {
-  FileUploadComponent,
-  DragFileUploadComponent,
-} from '../../components/atoms';
+import { DragFileUploadComponent } from '../../components/atoms';
 import { Card } from '../../components/molecules';
 import { DetectionHeader } from '../../components/organisms';
 
 const DetectionContainer = () => {
+  const [uploadedImage, setUploadedImage] = useState(null);
+
+  const handleUploadImage = () => {
+    const fd = new FormData();
+    fd.append('wound-img', uploadedImage);
+
+    // API call here
+  };
+
   return (
     <Box
       sx={{
@@ -43,7 +50,11 @@ const DetectionContainer = () => {
       >
         Atau
       </Typography>
-      <DragFileUploadComponent />
+      <DragFileUploadComponent
+        uploadedImage={uploadedImage}
+        setUploadedImage={setUploadedImage}
+        onUploadImage={handleUploadImage}
+      />
       <Card
         title="Cara Penggunaan"
         content="Arahkan kamera ponsel Anda ke bagian kulit yang terkena luka bakar atau unggah foto luka bakar anda. AI akan menganalisis dan mengklasifikasikan luka bakar tersebut untuk Anda."
