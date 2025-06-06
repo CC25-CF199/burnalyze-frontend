@@ -7,7 +7,7 @@ import {
   CameraContainer,
 } from '../containers';
 
-import { MainLayout } from '../components/templates';
+import { MainLayout, ProtectedResult } from '../components/templates';
 
 const Router = createBrowserRouter([
   {
@@ -45,7 +45,11 @@ const Router = createBrowserRouter([
           },
           {
             path: 'result',
-            Component: DetectionResultContainer,
+            element: (
+              <ProtectedResult>
+                <DetectionResultContainer />
+              </ProtectedResult>
+            ),
           },
         ],
       },

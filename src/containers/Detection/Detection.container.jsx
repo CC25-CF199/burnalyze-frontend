@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DragFileUploadComponent } from '../../components/atoms';
 import { Card } from '../../components/molecules';
 import { DetectionHeader } from '../../components/organisms';
-import { callDetectionAPI } from '../../redux/detection';
+import { callDetectionAPI, setUserImage } from '../../redux/detection';
+import fileToDataURL from '../../utils/fileToDataURL';
 
 const DetectionContainer = () => {
   const dispatch = useDispatch();
@@ -17,10 +18,13 @@ const DetectionContainer = () => {
 
   const handleUploadImage = async () => {
     try {
+      const imgSrc = await fileToDataURL(uploadedImage);
       const fd = new FormData();
       fd.append('wound-img', uploadedImage);
 
       await dispatch(callDetectionAPI(fd)).unwrap();
+      dispatch(setUserImage(imgSrc));
+
       navigateTo('result');
     } catch (error) {
       console.error(error.message);

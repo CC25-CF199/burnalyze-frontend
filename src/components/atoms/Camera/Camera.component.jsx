@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import dataURLtoFile from '../../../utils/dataURLtoFile';
 import generateRandomFilename from '../../../utils/generateRandonFilename';
-import { callDetectionAPI } from '../../../redux/detection';
+import { callDetectionAPI, setUserImage } from '../../../redux/detection';
 
 const CameraComponent = () => {
   const navigateTo = useNavigate();
@@ -42,6 +42,7 @@ const CameraComponent = () => {
       fd.append('wound-img', uploadedImage);
 
       await dispatch(callDetectionAPI(fd)).unwrap();
+      dispatch(setUserImage(imgSrc));
       navigateTo('/detection/result');
     } catch (error) {
       console.error(error.message);

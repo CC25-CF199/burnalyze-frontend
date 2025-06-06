@@ -38,6 +38,14 @@ const styleConfig = {
       mb: 1,
     },
   },
+  scanCompleteUserImg: {
+    sx: {
+      height: { xs: '56px' },
+      width: { xs: '56px' },
+      borderRadius: '8px',
+      mr: 1,
+    },
+  },
   scanCompleteIcon: {
     sx: {
       height: { xs: '36px' },

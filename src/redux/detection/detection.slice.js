@@ -5,6 +5,7 @@ import reducers from './detection.reducer';
 
 const initialState = {
   result: null,
+  userImgSrc: null,
   loading: false,
   error: null,
 };
@@ -31,5 +32,6 @@ export const detectionSlice = createSlice({
   },
 });
 
-export const { setUserImage } = detectionSlice.actions;
+export const { setUserImage, resetUserImage, resetResult } =
+  detectionSlice.actions;
 export const { reducer } = detectionSlice;
