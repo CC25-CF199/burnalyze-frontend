@@ -38,6 +38,12 @@ const styleConfig = {
       mb: 1,
     },
   },
+  scanCompleteIcon: {
+    sx: {
+      height: { xs: '36px' },
+      width: 'auto',
+    },
+  },
 };
 
 export { styleConfig };

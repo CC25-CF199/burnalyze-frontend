@@ -3,6 +3,7 @@ import { createBrowserRouter, Outlet } from 'react-router-dom';
 import {
   ExampleContainer,
   DetectionContainer,
+  DetectionResultContainer,
   CameraContainer,
 } from '../containers';
 
@@ -33,11 +34,20 @@ const Router = createBrowserRouter([
       },
       {
         path: 'detection',
-        Component: DetectionContainer,
-      },
-      {
-        path: 'camera',
-        Component: CameraContainer,
+        children: [
+          {
+            path: '',
+            Component: DetectionContainer,
+          },
+          {
+            path: 'camera',
+            Component: CameraContainer,
+          },
+          {
+            path: 'result',
+            Component: DetectionResultContainer,
+          },
+        ],
       },
     ],
   },

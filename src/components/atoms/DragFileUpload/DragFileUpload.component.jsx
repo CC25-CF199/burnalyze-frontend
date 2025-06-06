@@ -1,14 +1,10 @@
 import { CloudUploadOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 
 const { Dragger } = Upload;
 
-const DragFileUploadComponent = ({
-  uploadedImage,
-  setUploadedImage,
-  onUploadImage,
-}) => {
+const DragFileUploadComponent = ({ setUploadedImage }) => {
   const props = {
     name: 'file',
     multiple: false,
@@ -27,6 +23,10 @@ const DragFileUploadComponent = ({
         setUploadedImage(file);
       }
       console.log('Dropped files', e.dataTransfer.files);
+    },
+    onRemove: () => {
+      setUploadedImage(null);
+      return true;
     },
   };
 
@@ -62,21 +62,6 @@ const DragFileUploadComponent = ({
         </p>
         <p className="ant-upload-text">Seret gambar ke atau Pilih gambar</p>
       </Dragger>
-
-      <Button
-        variant="contained"
-        onClick={onUploadImage}
-        disabled={!uploadedImage}
-        sx={{
-          width: '100%',
-          color: '#FFF',
-          fontWeight: 600,
-          borderRadius: '8px',
-          boxShadow: 3,
-        }}
-      >
-        Analisa Gambar
-      </Button>
     </Box>
   );
 };

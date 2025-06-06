@@ -2,11 +2,17 @@ import { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import { Box, Button, CircularProgress } from '@mui/material';
 import { Camera, Refresh } from '@mui/icons-material';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import dataURLtoFile from '../../../utils/dataURLtoFile';
 import generateRandomFilename from '../../../utils/generateRandonFilename';
+import { callDetectionAPI } from '../../../redux/detection';
 
 const CameraComponent = () => {
+  const navigateTo = useNavigate();
+  const dispatch = useDispatch();
+  const isCallLoading = useSelector(state => state.detection.loading);
   const camRef = useRef(null);
   const [imgSrc, setImgSrc] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -30,13 +36,16 @@ const CameraComponent = () => {
     setIsLoading(false);
   }, []);
 
-  const handleUploadImage = () => {
-    const fd = new FormData();
-    fd.append('wound-img', uploadedImage);
+  const handleUploadImage = async () => {
+    try {
+      const fd = new FormData();
+      fd.append('wound-img', uploadedImage);
 
-    console.log(fd.get('wound-img'));
-
-    // API call here
+      await dispatch(callDetectionAPI(fd)).unwrap();
+      navigateTo('/detection/result');
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -113,6 +122,7 @@ const CameraComponent = () => {
           <Button
             variant="contained"
             onClick={handleUploadImage}
+            loading={isCallLoading}
             sx={{
               width: '100%',
               color: '#FFF',
