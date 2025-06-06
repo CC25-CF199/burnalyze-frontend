@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   DetectionResultHeader,
   DetectionResultCard,
+  DetectionResultAccordion,
 } from '../../components/molecules';
 import { resetResult, resetUserImage } from '../../redux/detection';
 
@@ -15,6 +16,10 @@ const DetectionResultContainer = () => {
   const woundClass = useSelector(
     state => state.detection.result.message.woundClass
   );
+  const desc = useSelector(state => state.detection.result.message.desc);
+  const treatments = useSelector(
+    state => state.detection.result.message.treatments
+  );
 
   const handleRescan = () => {
     dispatch(resetResult());
@@ -22,9 +27,21 @@ const DetectionResultContainer = () => {
   };
 
   return (
-    <Box>
+    <Box
+      sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '10px',
+      }}
+    >
       <DetectionResultHeader />
-      <DetectionResultCard imgSrc={imgSrc} woundClass={woundClass} />
+      <DetectionResultCard
+        imgSrc={imgSrc}
+        woundClass={woundClass}
+        desc={desc}
+      />
+      <DetectionResultAccordion treatments={treatments} />
       <Button
         component={NavLink}
         to="/detection"

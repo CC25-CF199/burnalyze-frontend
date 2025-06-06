@@ -43,7 +43,6 @@ const styleConfig = {
       height: { xs: '56px' },
       width: { xs: '56px' },
       borderRadius: '8px',
-      mr: 1,
     },
   },
   scanCompleteIcon: {

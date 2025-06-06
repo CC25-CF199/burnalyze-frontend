@@ -5,10 +5,11 @@ const MainContent = ({ children }) => {
     <Box
       component="main"
       sx={{
-        flexGrow: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'auto',
+        // flexGrow: 1,
+        // display: 'flex',
+        // flexDirection: 'column',
+        // overflow: 'auto',
+        height: '100%',
         padding: { xs: 2, md: 3 },
       }}
     >
