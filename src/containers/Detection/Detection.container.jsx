@@ -4,7 +4,7 @@ import { PhotoCamera } from '@mui/icons-material';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { DragFileUploadComponent } from '../../components/atoms';
+import { UploadFileComponent } from '../../components/molecules';
 import { Card } from '../../components/molecules';
 import { DetectionHeader } from '../../components/organisms';
 import { callDetectionAPI, setUserImage } from '../../redux/detection';
@@ -41,50 +41,47 @@ const DetectionContainer = () => {
       }}
     >
       <DetectionHeader />
-      <Button
-        component={NavLink}
-        to="camera"
-        variant="contained"
-        startIcon={<PhotoCamera />}
-        disabled={uploadedImage}
+      <Box
         sx={{
-          width: '100%',
-          color: '#FFF',
-          fontWeight: 600,
-          borderRadius: '8px',
-          boxShadow: 3,
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: { md: 'center' },
+          justifyContent: { lg: 'space-around' },
+          gap: 4,
         }}
       >
-        Ambil Gambar
-      </Button>
-      <Typography
-        sx={{
-          textAlign: 'center',
-          fontWeight: 500,
-        }}
-      >
-        Atau
-      </Typography>
-      <DragFileUploadComponent
-        uploadedImage={uploadedImage}
-        setUploadedImage={setUploadedImage}
-        onUploadImage={handleUploadImage}
-      />
-      <Button
-        variant="contained"
-        onClick={handleUploadImage}
-        disabled={!uploadedImage}
-        loading={isCallLoading}
-        sx={{
-          width: '100%',
-          color: '#FFF',
-          fontWeight: 600,
-          borderRadius: '8px',
-          boxShadow: 3,
-        }}
-      >
-        Analisa Gambar
-      </Button>
+        <Button
+          component={NavLink}
+          to="camera"
+          variant="contained"
+          startIcon={<PhotoCamera />}
+          disabled={uploadedImage}
+          sx={{
+            width: { xs: '100%', lg: 'auto' },
+            minWidth: { lg: '200px' },
+            color: '#FFF',
+            fontWeight: 600,
+            borderRadius: '8px',
+            boxShadow: 3,
+          }}
+        >
+          Ambil Gambar
+        </Button>
+        <Typography
+          sx={{
+            textAlign: 'center',
+            fontWeight: 500,
+          }}
+        >
+          Atau
+        </Typography>
+        <UploadFileComponent
+          uploadedImage={uploadedImage}
+          setUploadedImage={setUploadedImage}
+          handleUploadImage={handleUploadImage}
+          isCallLoading={isCallLoading}
+        />
+      </Box>
       <Card
         title="Cara Penggunaan"
         content="Arahkan kamera ponsel Anda ke bagian tubuh yang terkena luka bakar atau unggah foto luka bakar anda. AI akan menganalisis dan mengklasifikasikan luka bakar tersebut untuk Anda."

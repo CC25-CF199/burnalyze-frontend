@@ -60,7 +60,7 @@ const DragFileUploadComponent = ({ setUploadedImage }) => {
         <p className="ant-upload-drag-icon">
           <CloudUploadOutlined />
         </p>
-        <p className="ant-upload-text">Seret gambar ke atau Pilih gambar</p>
+        <p className="ant-upload-text">Seret gambar atau Pilih gambar</p>
       </Dragger>
     </Box>
   );

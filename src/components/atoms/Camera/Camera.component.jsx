@@ -1,7 +1,7 @@
 import { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import { Box, Button, CircularProgress } from '@mui/material';
-import { Camera, Refresh } from '@mui/icons-material';
+import { Camera, Refresh, Psychology } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -54,8 +54,8 @@ const CameraComponent = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         position: 'relative',
+        width: 'fit-content',
       }}
     >
       {!imgSrc ? (
@@ -78,7 +78,11 @@ const CameraComponent = () => {
             ref={camRef}
             screenshotFormat="image/jpeg"
             onUserMedia={handleUserMedia}
-            style={{ opacity: isLoading ? 0.5 : 1 }}
+            mirrored={true}
+            style={{
+              opacity: isLoading ? 0.5 : 1,
+              borderRadius: '8px',
+            }}
           />
           <Button
             variant="contained"
@@ -86,11 +90,16 @@ const CameraComponent = () => {
             startIcon={<Camera />}
             disabled={isLoading}
             sx={{
-              width: '100%',
+              position: 'absolute',
+              bottom: '16px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '80%',
               color: '#FFF',
               fontWeight: 600,
-              borderRadius: '0 0 8px 8px',
+              borderRadius: '8px',
               boxShadow: 3,
+              zIndex: 1,
             }}
           >
             Ambil Foto
@@ -102,38 +111,54 @@ const CameraComponent = () => {
             src={imgSrc}
             alt="captured"
             style={{
-              maxWidth: '100%',
-              borderRadius: '8px 8px 0 0',
+              maxHeight: '100%',
+              borderRadius: '8px',
             }}
           />
-          <Button
-            variant="contained"
-            onClick={retake}
-            startIcon={<Refresh />}
+          <Box
             sx={{
-              width: '100%',
-              color: '#FFF',
-              borderRadius: '0 0 8px 8px',
-              boxShadow: 3,
-              mb: 2,
-            }}
-          >
-            Ambil Ulang
-          </Button>
-          <Button
-            variant="contained"
-            onClick={handleUploadImage}
-            loading={isCallLoading}
-            sx={{
-              width: '100%',
+              display: 'flex',
+              gap: 1,
+              position: 'absolute',
+              bottom: '16px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '80%',
               color: '#FFF',
               fontWeight: 600,
               borderRadius: '8px',
               boxShadow: 3,
+              zIndex: 1,
             }}
           >
-            Analisa Gambar
-          </Button>
+            <Button
+              variant="contained"
+              onClick={retake}
+              startIcon={<Refresh />}
+              sx={{
+                width: '100%',
+                color: '#FFF',
+                fontWeight: 600,
+                boxShadow: 0,
+              }}
+            >
+              Ambil Ulang
+            </Button>
+            <Button
+              variant="contained"
+              onClick={handleUploadImage}
+              startIcon={<Psychology />}
+              loading={isCallLoading}
+              sx={{
+                width: '100%',
+                color: '#FFF',
+                fontWeight: 600,
+                boxShadow: 0,
+              }}
+            >
+              Analisa Gambar
+            </Button>
+          </Box>
         </>
       )}
     </Box>

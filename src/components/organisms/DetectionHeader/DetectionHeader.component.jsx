@@ -35,7 +35,7 @@ const DetectionHeader = () => {
           }}
         >
           Deteksi dan kategorikan luka bakar pada kulit secara instan
-          menggunakan kamera ponsel Anda
+          menggunakan kamera perangkat Anda
         </Typography>
       </Box>
     </Box>
