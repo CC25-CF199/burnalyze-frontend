@@ -47,7 +47,7 @@ const DetectionContainer = () => {
           flexDirection: { xs: 'column', md: 'row' },
           alignItems: { md: 'center' },
           justifyContent: { lg: 'space-around' },
-          gap: 4,
+          gap: 2,
         }}
       >
         <Button

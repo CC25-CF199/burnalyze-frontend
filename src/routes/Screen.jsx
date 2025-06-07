@@ -4,6 +4,7 @@ import {
   ExampleContainer,
   DetectionContainer,
   DetectionResultContainer,
+  DetectionHistoryContainer,
   CameraContainer,
 } from '../containers';
 
@@ -50,6 +51,10 @@ const Router = createBrowserRouter([
                 <DetectionResultContainer />
               </ProtectedResult>
             ),
+          },
+          {
+            path: 'history',
+            Component: DetectionHistoryContainer,
           },
         ],
       },

@@ -22,6 +22,6 @@ export const navItems = [
   {
     title: 'Riwayat',
     iconPath: history,
-    linkTo: '/history',
+    linkTo: '/detection/history',
   },
 ];
