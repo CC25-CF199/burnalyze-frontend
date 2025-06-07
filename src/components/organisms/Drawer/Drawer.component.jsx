@@ -54,35 +54,37 @@ const DrawerComponent = ({ isDrawerOpen, handleOpenDrawer }) => {
             </ListItemButton>
           </ListItem>
         ))}
-        <ListItem
-          disablePadding
-          sx={{
-            padding: '8px 16px',
-          }}
-        >
-          <ListItemButton
-            component={NavLink}
-            to="/login"
+        {!isAuth && (
+          <ListItem
+            disablePadding
             sx={{
-              textAlign: 'center',
-              backgroundColor: 'primary.main',
-              borderRadius: '8px',
-              color: 'secondary.main',
-              '&:hover': {
-                backgroundColor: '#00ADB5',
-              },
+              padding: '8px 16px',
             }}
           >
-            <ListItemText
-              primary="Sign In"
+            <ListItemButton
+              component={NavLink}
+              to="/login"
               sx={{
-                '& .MuiTypography-root': {
-                  fontWeight: 600,
+                textAlign: 'center',
+                backgroundColor: 'primary.main',
+                borderRadius: '8px',
+                color: 'secondary.main',
+                '&:hover': {
+                  backgroundColor: '#00ADB5',
                 },
               }}
-            />
-          </ListItemButton>
-        </ListItem>
+            >
+              <ListItemText
+                primary="Sign In"
+                sx={{
+                  '& .MuiTypography-root': {
+                    fontWeight: 600,
+                  },
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
+        )}
       </List>
     </Box>
   );
