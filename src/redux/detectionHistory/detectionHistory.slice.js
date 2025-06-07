@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { getAllUserHistories } from './detectionHistory.action';
 import reducers from './detectionHistory.reducer';
-import { detectionSlice } from '../detection/detection.slice';
 
 const initialState = {
   histories: null,
@@ -32,4 +31,4 @@ export const detectionHistorySlice = createSlice({
   },
 });
 
-export const { reducer } = detectionSlice;
+export const { reducer } = detectionHistorySlice;

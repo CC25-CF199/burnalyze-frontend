@@ -75,7 +75,9 @@ function ResponsiveAppBar({ handleOpenDrawer }) {
               </NavLink>
             ))}
           </Box>
-          <Button items="Sign In" type="signInDesktop" />
+          <NavLink to="/login">
+            <Button items="Sign In" type="signInDesktop" />
+          </NavLink>
         </Toolbar>
       </Container>
     </AppBar>

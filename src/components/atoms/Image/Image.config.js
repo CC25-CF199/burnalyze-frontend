@@ -1,4 +1,20 @@
 const styleConfig = {
+  oAuth: {
+    sx: {
+      height: { xs: '24px', md: '32px' },
+    },
+  },
+  loginPageLogo: {
+    sx: {
+      height: {
+        xs: 40,
+        sm: 42,
+        md: 48,
+        lg: 50,
+      },
+      marginBlock: 5,
+    },
+  },
   navbarLogoDesktop: {
     sx: {
       height: 32,

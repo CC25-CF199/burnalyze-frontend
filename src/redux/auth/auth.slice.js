@@ -7,7 +7,6 @@ const initialState = {
   user: null,
   isLoggedIn: false,
   loading: false,
-  error: null,
 };
 
 export const authSlice = createSlice({
@@ -26,15 +25,11 @@ export const authSlice = createSlice({
 
       localStorage.setItem(
         'authToken',
-        action.payload?.tokens?.access?.token || ''
+        action.payload?.loginResult?.token || ''
       );
     });
-    builder.addCase(authenticateUser.rejected, (state, action) => {
+    builder.addCase(authenticateUser.rejected, state => {
       state.loading = false;
-      state.error =
-        action.payload && typeof action.payload === 'string'
-          ? action.payload
-          : 'An error occurred';
     });
   },
 });

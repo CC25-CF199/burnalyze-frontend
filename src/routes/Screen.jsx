@@ -6,6 +6,8 @@ import {
   DetectionResultContainer,
   DetectionHistoryContainer,
   CameraContainer,
+  LoginContainer,
+  RegisterContainer,
 } from '../containers';
 
 import { MainLayout, ProtectedResult } from '../components/templates';
@@ -18,8 +20,12 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/example',
-        Component: ExampleContainer,
+        path: '/login',
+        Component: LoginContainer,
+      },
+      {
+        path: '/register',
+        Component: RegisterContainer,
       },
     ],
   },
