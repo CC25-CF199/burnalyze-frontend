@@ -15,7 +15,7 @@ const EdukasiLukaBakar = () => {
       className="min-h-screen"
       style={{ fontFamily: 'Metropolis, Arial, Helvetica, sans-serif' }}
     >
-      <div className="max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 text-gray-800">
+      <div className="flex flex-col gap-12 max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8 text-gray-800">
         <div className="text-center mb-6 sm:mb-8">
           <h1
             className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-gray-800"
