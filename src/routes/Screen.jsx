@@ -5,6 +5,7 @@ import {
   DetectionContainer,
   DetectionResultContainer,
   DetectionHistoryContainer,
+  HistoryDetailsContainer,
   CameraContainer,
   LoginContainer,
   RegisterContainer,
@@ -60,7 +61,16 @@ const Router = createBrowserRouter([
           },
           {
             path: 'history',
-            Component: DetectionHistoryContainer,
+            children: [
+              {
+                path: '',
+                Component: DetectionHistoryContainer,
+              },
+              {
+                path: 'details/:id',
+                Component: HistoryDetailsContainer,
+              },
+            ],
           },
         ],
       },

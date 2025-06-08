@@ -61,7 +61,7 @@ const LatestDetectionCard = ({ latestHistory }) => {
         )}
         <Button
           component={NavLink}
-          tp={`/detection/details/${historyId}`}
+          to={`/detection/history/details/${historyId}`}
           size="medium"
           sx={{
             backgroundColor: 'primary.main',

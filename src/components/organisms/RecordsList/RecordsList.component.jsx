@@ -52,8 +52,9 @@ const RecordsList = () => {
 
               return (
                 <Button
+                  key={history.id}
                   component={NavLink}
-                  to={`/detection/details/${history.id}`}
+                  to={`/detection/history/details/${history.id}`}
                   sx={{
                     display: 'flex',
                     justifyContent: 'space-between',

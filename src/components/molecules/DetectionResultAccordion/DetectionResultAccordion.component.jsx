@@ -90,6 +90,7 @@ const DetectionResultAccordion = ({ treatments }) => {
         >
           {treatments.map(item => (
             <Typography
+              key={item}
               sx={{
                 fontSize: { xs: '12px', md: '14px' },
               }}

@@ -3,17 +3,18 @@ import axios from 'axios';
 
 const requestURL = 'http://localhost:3000/v1/detection';
 
-export const getAllUserHistories = createAsyncThunk(
-  'detection/histories',
-  async _thunkAPI => {
+export const getHistoryById = createAsyncThunk(
+  'detection/details',
+  async (historyId, _thunkAPI) => {
     try {
-      const userToken = localStorage.getItem('authToken');
-
-      const response = await axios.get(`${requestURL}/histories`, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      });
+      const response = await axios.get(
+        `${requestURL}/history/details/${historyId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+          },
+        }
+      );
 
       return response;
     } catch (error) {
