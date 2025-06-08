@@ -17,6 +17,7 @@ const DetectionResultHeader = () => {
       <Typography
         sx={{
           fontWeight: 600,
+          fontSize: { xs: '16px', md: '20px' },
         }}
       >
         Analisa Selesai!

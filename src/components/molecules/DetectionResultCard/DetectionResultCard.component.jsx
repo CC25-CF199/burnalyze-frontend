@@ -9,10 +9,10 @@ const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '10px',
+        gap: { xs: '10px', md: '20px' },
         boxShadow: 3,
         borderRadius: '8px',
-        padding: '12px',
+        padding: { xs: '12px', md: '16px' },
       }}
     >
       <Box
@@ -24,11 +24,19 @@ const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
       >
         <Image src={imgSrc} type="scanCompleteUserImg" />
         <Box>
-          <Typography variant="subtitle2">Luka Bakar Terdeteksi</Typography>
+          <Typography
+            variant="subtitle2"
+            sx={{
+              fontSize: { xs: '14px', md: '18px' },
+            }}
+          >
+            Luka Bakar Terdeteksi
+          </Typography>
           <Typography
             variant="subtitle2"
             sx={{
               color: '#01CEE1',
+              fontSize: { xs: '14px', md: '16px' },
             }}
           >
             {woundClass}
@@ -38,7 +46,7 @@ const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
       <>
         <Typography
           sx={{
-            fontSize: '12px',
+            fontSize: { xs: '12px', md: '14px' },
           }}
         >
           {desc}
@@ -48,7 +56,7 @@ const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
           <Typography
             variant="subtitle2"
             sx={{
-              fontSize: '10px',
+              fontSize: { xs: '10px', md: '14px' },
               color: '#FF5722',
             }}
           >
