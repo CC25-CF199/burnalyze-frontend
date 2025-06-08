@@ -15,6 +15,8 @@ const NoRecordHeaderCard = ({ items, hasBtn }) => {
         boxShadow: 4,
         padding: 2,
         borderRadius: '8px',
+        maxWidth: '500px',
+        marginInline: 'auto',
       }}
     >
       <SickIcon sx={{ color: '#FF6B6B', fontSize: '40px' }} />

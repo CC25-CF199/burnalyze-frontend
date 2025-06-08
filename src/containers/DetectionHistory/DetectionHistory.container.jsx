@@ -8,7 +8,6 @@ import { RecordsListComponent } from '../../components/organisms';
 
 const DetectionHistoryContainer = () => {
   const dispatch = useDispatch();
-  const isCallLoading = useSelector(state => state.detectionHistory.loading);
   const isAuth = useSelector(state => state.auth.isLoggedIn);
 
   useEffect(() => {
@@ -25,11 +24,6 @@ const DetectionHistoryContainer = () => {
         gap: 1,
       }}
     >
-      <Typography
-        sx={{ fontWeight: 600, fontSize: { xs: '16px', md: '20px' } }}
-      >
-        Riwayat
-      </Typography>
       {isAuth ? (
         <RecordsListComponent />
       ) : (

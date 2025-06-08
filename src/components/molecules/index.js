@@ -6,3 +6,4 @@ export * from './UploadFileComponent';
 export * from './NoRecordHeaderCard';
 export * from './LoginForm';
 export * from './RegistrationForm';
+export * from './LatestDetectionCard';

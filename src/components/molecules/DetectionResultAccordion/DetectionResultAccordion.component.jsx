@@ -45,7 +45,7 @@ const DetectionResultAccordion = ({ treatments }) => {
         aria-controls="panel1-content"
         id="panel1-header"
         sx={{
-          paddingInline: { xs: '0 12px 12px 12px', md: '0 16px 16px 16px' },
+          paddingInline: { xs: '0 12px 12px 12px', md: '0 24px 24px 24px' },
         }}
       >
         <Box
@@ -75,7 +75,7 @@ const DetectionResultAccordion = ({ treatments }) => {
           display: 'flex',
           flexDirection: 'column',
           gap: '18px',
-          padding: { xs: '0 12px 12px 12px', md: '0 16px 16px 16px' },
+          padding: { xs: '0 12px 12px 12px', md: '0 24px 24px 24px' },
         }}
       >
         <Box

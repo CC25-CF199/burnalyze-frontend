@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { Error } from '@mui/icons-material';
 
 import { Image } from '../../atoms';
+import { getClassColor } from './DetectionResultCard.config';
 
 const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
   return (
@@ -12,14 +13,14 @@ const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
         gap: { xs: '10px', md: '20px' },
         boxShadow: 3,
         borderRadius: '8px',
-        padding: { xs: '12px', md: '16px' },
+        padding: { xs: '12px', md: '24px' },
       }}
     >
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: 1,
+          gap: { xs: 1, md: 2 },
         }}
       >
         <Image src={imgSrc} type="scanCompleteUserImg" />
@@ -35,7 +36,7 @@ const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
           <Typography
             variant="subtitle2"
             sx={{
-              color: '#01CEE1',
+              color: getClassColor(woundClass),
               fontSize: { xs: '14px', md: '16px' },
             }}
           >
