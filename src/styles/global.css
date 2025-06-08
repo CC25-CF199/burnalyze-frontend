@@ -3,16 +3,6 @@
 @theme {
   --color-primaryBlue: #01cee1;
   --color-secondaryWhite: #fff;
-
-  --font-metropolis: 'Metropolis';
-}
-
-html,
-body,
-#root {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
 }
 
 :root {

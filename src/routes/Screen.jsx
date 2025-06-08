@@ -1,16 +1,8 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-import {
-  ExampleContainer,
-  DetectionContainer,
-  DetectionResultContainer,
-  DetectionHistoryContainer,
-  CameraContainer,
-  LoginContainer,
-  RegisterContainer,
-} from '../containers';
+import { ExampleContainer, DetectionContainer, LandingContainer, ProfileContainer, SettingsContainer, EditProfileContainer, ChangePasswordContainer } from '../containers';
 
-import { MainLayout, ProtectedResult } from '../components/templates';
+import { MainLayout } from '../components/templates';
 
 const Router = createBrowserRouter([
   {
@@ -20,12 +12,32 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/login',
-        Component: LoginContainer,
+        path: '/',
+        Component: LandingContainer,
       },
       {
-        path: '/register',
-        Component: RegisterContainer,
+        path: '/example',
+        Component: ExampleContainer,
+      },
+      {
+        path: '/landing',
+        Component: LandingContainer,
+      },
+      {
+        path: '/profile',
+        Component: ProfileContainer,
+      },
+      {
+        path: '/settings',
+        Component: SettingsContainer,
+      },
+      {
+        path: '/edit-profile',
+        Component: EditProfileContainer,
+      },
+      {
+        path: '/change-password',
+        Component: ChangePasswordContainer,
       },
     ],
   },
@@ -36,33 +48,8 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/',
-        Component: ExampleContainer,
-      },
-      {
         path: 'detection',
-        children: [
-          {
-            path: '',
-            Component: DetectionContainer,
-          },
-          {
-            path: 'camera',
-            Component: CameraContainer,
-          },
-          {
-            path: 'result',
-            element: (
-              <ProtectedResult>
-                <DetectionResultContainer />
-              </ProtectedResult>
-            ),
-          },
-          {
-            path: 'history',
-            Component: DetectionHistoryContainer,
-          },
-        ],
+        Component: DetectionContainer,
       },
     ],
   },
