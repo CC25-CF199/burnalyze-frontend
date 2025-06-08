@@ -13,6 +13,7 @@ import fileToDataURL from '../../utils/fileToDataURL';
 const DetectionContainer = () => {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
+  const isAuth = useSelector(state => state.auth.isLoggedIn);
   const isCallLoading = useSelector(state => state.detection.loading);
   const [uploadedImage, setUploadedImage] = useState(null);
 
@@ -22,7 +23,16 @@ const DetectionContainer = () => {
       const fd = new FormData();
       fd.append('wound-img', uploadedImage);
 
-      await dispatch(callDetectionAPI(fd)).unwrap();
+      // Config obj for authenticated request
+      const config = {
+        headers: isAuth
+          ? {
+              Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+            }
+          : {},
+      };
+
+      await dispatch(callDetectionAPI({ data: fd, config })).unwrap();
       dispatch(setUserImage(imgSrc));
 
       navigateTo('result');
