@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, Skeleton } from '@mui/material';
 import { useParams, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -13,7 +13,7 @@ const HistoryDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const details = useSelector(state => state.historyDetails.history?.message);
-  const isLoading = useSelector(state => state.historyDetails.loading);
+  const isCallLoading = useSelector(state => state.historyDetails.loading);
 
   useEffect(() => {
     if (id) {
@@ -39,27 +39,33 @@ const HistoryDetails = () => {
       >
         Detail Riwayat
       </Typography>
-      {!isLoading && (
+      {isCallLoading || !details ? (
+        <>
+          <Skeleton variant="rounded" height={200} />
+          <Skeleton variant="rounded" height={70} />
+        </>
+      ) : (
         <>
           <DetectionResultCard
-            imgSrc={details.image_url}
-            woundClass={details.class}
-            desc={details.desc}
+            imgSrc={details?.image_url}
+            woundClass={details?.class}
+            desc={details?.desc}
           />
-          <DetectionResultAccordion treatments={details.treatments} />
-          <Button
-            component={NavLink}
-            to={`/detection/history`}
-            size="medium"
-            sx={{
-              backgroundColor: 'primary.main',
-              color: 'white',
-            }}
-          >
-            Kembali
-          </Button>
+          <DetectionResultAccordion treatments={details?.treatments} />
         </>
       )}
+      <Button
+        component={NavLink}
+        to={`/detection/history`}
+        variant="contained"
+        size="medium"
+        loading={isCallLoading}
+        sx={{
+          color: 'white',
+        }}
+      >
+        Kembali
+      </Button>
     </Box>
   );
 };

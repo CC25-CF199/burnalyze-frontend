@@ -63,8 +63,9 @@ const LatestDetectionCard = ({ latestHistory }) => {
           component={NavLink}
           to={`/detection/history/details/${historyId}`}
           size="medium"
+          loading={isCallLoading}
+          variant="contained"
           sx={{
-            backgroundColor: 'primary.main',
             color: 'white',
           }}
         >
