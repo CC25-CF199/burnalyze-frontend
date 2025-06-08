@@ -8,6 +8,7 @@ import {
   CameraContainer,
   LoginContainer,
   RegisterContainer,
+  EducationContainer,
 } from '../containers';
 
 import { MainLayout, ProtectedResult } from '../components/templates';
@@ -38,6 +39,10 @@ const Router = createBrowserRouter([
       {
         path: '/',
         Component: ExampleContainer,
+      },
+      {
+        path: 'education',
+        Component: EducationContainer,
       },
       {
         path: 'detection',
