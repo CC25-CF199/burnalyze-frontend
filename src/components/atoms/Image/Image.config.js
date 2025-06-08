@@ -67,6 +67,12 @@ const styleConfig = {
       width: 'auto',
     },
   },
+  historiesThumbnail: {
+    sx: {
+      height: { xs: 40, md: 60 },
+      width: { xs: 40, md: 60 },
+    },
+  },
 };
 
 export { styleConfig };

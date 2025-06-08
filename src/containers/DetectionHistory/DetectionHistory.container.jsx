@@ -3,13 +3,12 @@ import { Box, Typography } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getAllUserHistories } from '../../redux/detectionHistory';
-import { NoRecordCardComponent } from '../../components/molecules';
+import { NoRecordHeaderCardComponent } from '../../components/molecules';
+import { RecordsListComponent } from '../../components/organisms';
 
 const DetectionHistoryContainer = () => {
   const dispatch = useDispatch();
-  const isCallLoading = useSelector(state => state.detectionHistory.loading);
   const isAuth = useSelector(state => state.auth.isLoggedIn);
-  const histories = useSelector(state => state.detectionHistory.histories);
 
   useEffect(() => {
     if (isAuth) {
@@ -22,11 +21,17 @@ const DetectionHistoryContainer = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 2,
+        gap: 1,
       }}
     >
-      <Typography sx={{ fontWeight: 600 }}>Riwayat</Typography>
-      {isAuth ? <h1>data</h1> : <NoRecordCardComponent />}
+      {isAuth ? (
+        <RecordsListComponent />
+      ) : (
+        <NoRecordHeaderCardComponent
+          hasBtn={true}
+          items="Daftar dan Login akunmu untuk mulai melihat riwayat deteksi"
+        />
+      )}
     </Box>
   );
 };

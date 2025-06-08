@@ -45,7 +45,7 @@ const DetectionResultAccordion = ({ treatments }) => {
         aria-controls="panel1-content"
         id="panel1-header"
         sx={{
-          paddingInline: '12px',
+          paddingInline: { xs: '0 12px 12px 12px', md: '0 24px 24px 24px' },
         }}
       >
         <Box
@@ -60,15 +60,22 @@ const DetectionResultAccordion = ({ treatments }) => {
               color: '#01CEE1',
             }}
           />
-          <Typography variant="subtitle2">Rekomendasi Penanganan</Typography>
+          <Typography
+            variant="subtitle2"
+            sx={{
+              fontSize: { xs: '14px', md: '18px' },
+            }}
+          >
+            Rekomendasi Penanganan
+          </Typography>
         </Box>
       </AccordionSummary>
       <AccordionDetails
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '10px',
-          padding: '0 12px 12px 12px',
+          gap: '18px',
+          padding: { xs: '0 12px 12px 12px', md: '0 24px 24px 24px' },
         }}
       >
         <Box
@@ -77,13 +84,14 @@ const DetectionResultAccordion = ({ treatments }) => {
             flexDirection: 'column',
             gap: {
               xs: '5px',
+              md: '8px',
             },
           }}
         >
           {treatments.map(item => (
             <Typography
               sx={{
-                fontSize: { xs: '12px' },
+                fontSize: { xs: '12px', md: '14px' },
               }}
             >
               {item}.
@@ -95,7 +103,7 @@ const DetectionResultAccordion = ({ treatments }) => {
           <Typography
             variant="subtitle2"
             sx={{
-              fontSize: '10px',
+              fontSize: { xs: '10px', md: '14px' },
               color: '#01CEE1',
             }}
           >
