@@ -1,18 +1,14 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
 import { Container, AppBar, Box, Toolbar, IconButton } from '@mui/material';
-import { useSelector } from 'react-redux';
 
 import burnalyzeLogo from '../../../assets/burnalyze_logo.png';
 import { Image, Button } from '../../atoms';
-import { UserMenuComponent } from '../../organisms';
 import { navItems } from '../../../constants/Component.constants';
 
 function ResponsiveAppBar({ handleOpenDrawer }) {
-  const isAuth = useSelector(state => state.auth.isLoggedIn);
-
   return (
-    <AppBar position="sticky" color="secondary">
+    <AppBar position="static" color="secondary">
       <Container
         maxWidth="xl"
         sx={{
@@ -23,7 +19,7 @@ function ResponsiveAppBar({ handleOpenDrawer }) {
         <Toolbar
           disableGutters
           sx={{
-            justifyContent: 'space-between',
+            justifyContent: { xs: 'space-between', md: 'space-between' },
           }}
         >
           {/* Desktop Logo */}
@@ -41,6 +37,8 @@ function ResponsiveAppBar({ handleOpenDrawer }) {
               <MenuIcon />
             </IconButton>
           </Box>
+          {/* Mobile logo */}
+          <Image src={burnalyzeLogo} type="navbarLogoMobile" />
           {/* Spacer for mobile layout */}
           <Box sx={{ width: 40, display: { xs: 'block', md: 'none' } }} />
           {/* Desktop Button Page */}
@@ -77,13 +75,7 @@ function ResponsiveAppBar({ handleOpenDrawer }) {
               </NavLink>
             ))}
           </Box>
-          {isAuth ? (
-            <UserMenuComponent />
-          ) : (
-            <NavLink to="/login">
-              <Button items="Sign In" type="signInDesktop" />
-            </NavLink>
-          )}
+          <Button items="Sign In" type="signInDesktop" />
         </Toolbar>
       </Container>
     </AppBar>

@@ -9,14 +9,12 @@ import {
   ListItemIcon,
   Divider,
 } from '@mui/material';
-import { useSelector } from 'react-redux';
 
-import { Image, Button } from '../../atoms';
+import { Image } from '../../atoms';
 import burnalyzeLogo from '../../../assets/burnalyze_logo.png';
 import { navItems } from '../../../constants/Component.constants';
 
 const DrawerComponent = ({ isDrawerOpen, handleOpenDrawer }) => {
-  const isAuth = useSelector(state => state.auth.isLoggedIn);
   const container =
     typeof window !== 'undefined' ? window.document.body : undefined;
 
@@ -54,37 +52,26 @@ const DrawerComponent = ({ isDrawerOpen, handleOpenDrawer }) => {
             </ListItemButton>
           </ListItem>
         ))}
-        {!isAuth && (
-          <ListItem
-            disablePadding
+        <ListItem>
+          <ListItemButton
             sx={{
-              padding: '8px 16px',
+              backgroundColor: 'primary.main',
+              textAlign: 'center',
+              borderRadius: '8px',
+              paddingBlock: '2px',
             }}
           >
-            <ListItemButton
-              component={NavLink}
-              to="/login"
+            <ListItemText
+              primary="Sign In"
               sx={{
-                textAlign: 'center',
-                backgroundColor: 'primary.main',
-                borderRadius: '8px',
-                color: 'secondary.main',
-                '&:hover': {
-                  backgroundColor: '#00ADB5',
+                '& .MuiTypography-root': {
+                  fontWeight: 500,
+                  color: 'secondary.main',
                 },
               }}
-            >
-              <ListItemText
-                primary="Sign In"
-                sx={{
-                  '& .MuiTypography-root': {
-                    fontWeight: 600,
-                  },
-                }}
-              />
-            </ListItemButton>
-          </ListItem>
-        )}
+            />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );

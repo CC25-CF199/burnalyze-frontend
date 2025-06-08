@@ -1,0 +1,1 @@
+export { default as EditProfileContainer } from './EditProfile.container'; 

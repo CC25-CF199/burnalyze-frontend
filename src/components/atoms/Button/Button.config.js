@@ -10,17 +10,6 @@ const styleConfig = {
     type: 'submit',
     sx: { color: '#ffffff', fontWeight: 600 },
   },
-  loginBtn: {
-    variant: 'contained',
-    color: 'primary',
-    size: 'medium',
-    type: 'submit',
-    sx: {
-      color: '#FFF',
-      fontWeight: 600,
-      fontSize: { xs: '14px', md: '16px' },
-    },
-  },
   signInDesktop: {
     variant: 'contained',
     color: 'primary',
