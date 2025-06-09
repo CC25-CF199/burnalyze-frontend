@@ -276,7 +276,7 @@ const LandingContainer = () => {
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
             <Box
               component="img"
-              src="/landing1.png"
+              src="/doctor.png"
               alt="Doctor with phone"
               sx={{
                 height: 160,
