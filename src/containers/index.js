@@ -7,3 +7,8 @@ export * from './Camera';
 export * from './Login';
 export * from './Registration';
 export * from './Education';
+export * from './Landing';
+export * from './Profile';
+export * from './Settings';
+export * from './EditProfile';
+export * from './ChangePassword';
