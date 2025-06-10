@@ -24,7 +24,7 @@ const CameraComponent = () => {
   const [imgSrc, setImgSrc] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [facingMode, setFacingMode] = useState('environtment');
+  const [facingMode, setFacingMode] = useState('environment');
   const [isCameraError, setCameraError] = useState(null);
 
   const toggleCamera = () => {
@@ -34,7 +34,7 @@ const CameraComponent = () => {
     }
 
     setFacingMode(prevMode =>
-      prevMode === 'environtment' ? 'user' : 'environtment'
+      prevMode === 'environment' ? 'user' : 'environment'
     );
   };
 
@@ -59,7 +59,7 @@ const CameraComponent = () => {
   const handleUserMediaError = error => {
     if (error.name === 'OverconstrainedError')
       setFacingMode(prevMode =>
-        prevMode === 'environtment' ? 'user' : 'environtment'
+        prevMode === 'environment' ? 'user' : 'environment'
       );
     console.log('cam err');
 
