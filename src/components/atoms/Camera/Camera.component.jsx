@@ -33,7 +33,9 @@ const CameraComponent = () => {
       return;
     }
 
-    setFacingMode(prevMode => (prevMode === 'user' ? 'environtment' : 'user'));
+    setFacingMode(prevMode =>
+      prevMode === 'environtment' ? 'user' : 'environtment'
+    );
   };
 
   const capture = useCallback(async () => {
@@ -57,8 +59,9 @@ const CameraComponent = () => {
   const handleUserMediaError = error => {
     if (error.name === 'OverconstrainedError')
       setFacingMode(prevMode =>
-        prevMode === 'user' ? 'environtment' : 'user'
+        prevMode === 'environtment' ? 'user' : 'environtment'
       );
+    console.log('cam err');
 
     setCameraError(error);
   };
