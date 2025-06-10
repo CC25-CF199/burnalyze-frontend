@@ -494,54 +494,58 @@ const LandingContainer = () => {
               }}
             >
               {featureCards.map((feature, index) => (
-  <Link to={feature.link} key={index} style={{ textDecoration: 'none' }}>
-    <Box
-      sx={{
-        textAlign: 'center',
-        cursor: 'pointer',
-        minWidth: 80,
-        '&:hover': {
-          transform: 'scale(1.05)',
-          transition: 'all 0.2s ease-in-out',
-        },
-      }}
-    >
-      <Box
-        sx={{
-          backgroundColor: 'white',
-          border: '6px solid #57F1FF',
-          borderRadius: '50%',
-          width: 70,
-          height: 70,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: 'auto',
-          mb: 1,
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-        }}
-      >
-        <Box
-          component="img"
-          src={feature.icon}
-          alt={feature.title}
-          sx={{ height: 28, width: 'auto' }}
-        />
-      </Box>
-      <Typography
-        variant="body2"
-        sx={{
-          fontSize: '1rem',
-          fontWeight: 500,
-          color: 'white',
-          textDecoration: 'underline',
-        }}
-      >
-        {feature.title}
-      </Typography>
-    </Box>
-  </Link>
-))}
+                <Link
+                  to={feature.link}
+                  key={index}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <Box
+                    sx={{
+                      textAlign: 'center',
+                      cursor: 'pointer',
+                      minWidth: 80,
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                        transition: 'all 0.2s ease-in-out',
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        backgroundColor: 'white',
+                        border: '6px solid #57F1FF',
+                        borderRadius: '50%',
+                        width: 70,
+                        height: 70,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        margin: 'auto',
+                        mb: 1,
+                        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src={feature.icon}
+                        alt={feature.title}
+                        sx={{ height: 28, width: 'auto' }}
+                      />
+                    </Box>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontSize: '1rem',
+                        fontWeight: 500,
+                        color: 'white',
+                        textDecoration: 'underline',
+                      }}
+                    >
+                      {feature.title}
+                    </Typography>
+                  </Box>
+                </Link>
+              ))}
             </Box>
           </Box>
           {/* RIGHT IMAGE */}
@@ -601,45 +605,45 @@ const LandingContainer = () => {
           }}
         >
           {featureCards.map((feature, index) => (
-  <Link
-    key={index}
-    to={feature.link}
-    style={{ flex: 1, textAlign: 'center', textDecoration: 'none' }}
-  >
-    <Box
-      sx={{
-        cursor: 'pointer',
-        '&:hover': {
-          transform: 'scale(1.05)',
-          transition: 'all 0.2s ease-in-out',
-        },
-      }}
-    >
-      <Box
-        component="img"
-        src={feature.icon}
-        alt={feature.title}
-        sx={{
-          height: 28,
-          width: 'auto',
-          margin: 'auto',
-          mb: 1,
-          objectFit: 'contain',
-        }}
-      />
-      <Typography
-        variant="body2"
-        sx={{
-          fontSize: '0.85rem',
-          fontWeight: 500,
-          color: 'text.primary',
-        }}
-      >
-        {feature.title}
-      </Typography>
-    </Box>
-  </Link>
-))}
+            <Link
+              key={index}
+              to={feature.link}
+              style={{ flex: 1, textAlign: 'center', textDecoration: 'none' }}
+            >
+              <Box
+                sx={{
+                  cursor: 'pointer',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                    transition: 'all 0.2s ease-in-out',
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={feature.icon}
+                  alt={feature.title}
+                  sx={{
+                    height: 28,
+                    width: 'auto',
+                    margin: 'auto',
+                    mb: 1,
+                    objectFit: 'contain',
+                  }}
+                />
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: '0.85rem',
+                    fontWeight: 500,
+                    color: 'text.primary',
+                  }}
+                >
+                  {feature.title}
+                </Typography>
+              </Box>
+            </Link>
+          ))}
         </Box>
 
         {/* Fact Section */}
@@ -1325,7 +1329,8 @@ const LandingContainer = () => {
                       color: '#1f1f1f',
                     }}
                   >
-                    Apakah BurnAlyze bisa membantu penanganan pertama luka bakar?
+                    Apakah BurnAlyze bisa membantu penanganan pertama luka
+                    bakar?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{ pt: 0 }}>

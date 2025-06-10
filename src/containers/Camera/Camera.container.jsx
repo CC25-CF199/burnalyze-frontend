@@ -10,8 +10,11 @@ const CameraContainer = () => {
         minHeight: '100%',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: { xs: 'space-evenly', lg: 'space-between' },
+        justifyContent: 'center',
+        alignSelf: 'center',
+        paddingInline: { xs: 2, sm: 0 },
+        gap: 1,
+        maxWidth: '640px',
       }}
     >
       <CameraComponent />

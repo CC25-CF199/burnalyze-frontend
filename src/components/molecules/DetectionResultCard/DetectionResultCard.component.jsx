@@ -4,7 +4,7 @@ import { Error } from '@mui/icons-material';
 import { Image } from '../../atoms';
 import { getClassColor } from './DetectionResultCard.config';
 
-const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
+const DetectionResultCard = ({ imgSrc, woundClass, bodyPart, desc }) => {
   return (
     <Box
       sx={{
@@ -31,7 +31,7 @@ const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
               fontSize: { xs: '14px', md: '18px' },
             }}
           >
-            Luka Bakar Terdeteksi
+            Luka Bakar Terdeteksi di {bodyPart}
           </Typography>
           <Typography
             variant="subtitle2"

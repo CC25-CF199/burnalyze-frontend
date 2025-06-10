@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const requestURL = 'http://localhost:3000/v1/auth/register';
+const requestURL = `${import.meta.env.VITE_BURNALYZE_API}/auth/register`;
 
 export const registerUser = createAsyncThunk(
   'auth/register',

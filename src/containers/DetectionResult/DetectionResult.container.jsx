@@ -16,6 +16,9 @@ const DetectionResultContainer = () => {
   const woundClass = useSelector(
     state => state.detection.result.message.woundClass
   );
+  const bodyPart = useSelector(
+    state => state.detection.result.message.body_part
+  );
   const desc = useSelector(state => state.detection.result.message.desc);
   const treatments = useSelector(
     state => state.detection.result.message.treatments
@@ -33,12 +36,19 @@ const DetectionResultContainer = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '10px',
+        padding: {
+          xs: 2,
+          sm: '16px 10em 16px 10em',
+          md: '16px 18em 16px 18em',
+        },
       }}
     >
       <DetectionResultHeader />
+
       <DetectionResultCard
         imgSrc={imgSrc}
         woundClass={woundClass}
+        bodyPart={bodyPart}
         desc={desc}
       />
       <DetectionResultAccordion treatments={treatments} />

@@ -21,7 +21,7 @@ const styleConfig = {
       width: 'auto',
       maxHeight: { xs: 55, md: 64 },
       maxWidth: { xs: 'auto', md: 'auto' },
-      display: { xs: 'none', md: 'flex' },
+      display: { xs: 'none', md: 'block' },
     },
   },
   navbarLogoMobile: {
@@ -30,7 +30,7 @@ const styleConfig = {
       width: 'auto',
       maxHeight: { xs: 55, md: 64 },
       maxWidth: { xs: 'auto', md: 'auto' },
-      display: { xs: 'flex', md: 'none' },
+      display: { xs: 'block', md: 'none' },
     },
   },
   drawerLogo: {
@@ -71,6 +71,12 @@ const styleConfig = {
     sx: {
       height: { xs: 40, md: 60 },
       width: { xs: 40, md: 60 },
+    },
+  },
+  heroDoctor: {
+    sx: {
+      height: 'auto',
+      width: 'auto',
     },
   },
 };
