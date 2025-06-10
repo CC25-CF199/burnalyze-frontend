@@ -294,9 +294,9 @@ const LandingContainer = () => {
       <Box
         sx={{
           mx: 'auto',
-          px: 2,
           backgroundColor: '#f8fafc',
           minHeight: 'calc(100vh - 400px)',
+          overflowInline: 'hidden',
         }}
       >
         {/* Feature Navigation Cards */}
@@ -598,8 +598,11 @@ const LandingContainer = () => {
             </Swiper>
           </Box>
         </Box>
+
         {/* Why BurnAlyze Section */}
-        <Box sx={{ backgroundColor: '#f9f9f9', py: 4, textAlign: 'center' }}>
+        <Box
+          sx={{ backgroundColor: '#f9f9f9', py: 4, px: 2, textAlign: 'center' }}
+        >
           <Typography
             variant="h4"
             sx={{
