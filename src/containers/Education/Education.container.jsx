@@ -1,9 +1,7 @@
-import React from 'react';
 import {
   LocalHospital,
   Sick,
   Medication,
-  Healing,
   ReportProblem,
   Shield,
   QuestionMark,

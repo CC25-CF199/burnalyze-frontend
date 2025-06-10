@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const requestURL = 'http://localhost:3000/v1/detection/predict';
+const requestURL = `${import.meta.env.VITE_BURNALYZE_API}/detection/predict`;
 
 export const callDetectionAPI = createAsyncThunk(
   'detection/predict',
