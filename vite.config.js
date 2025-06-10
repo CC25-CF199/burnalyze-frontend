@@ -6,7 +6,12 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   optimizeDeps: {
-    include: ['swiper/react', 'swiper/modules'],
+    include: [
+      'swiper/react',
+      'swiper/modules',
+      'swiper/css',
+      'swiper/css/navigation',
+    ],
   },
   build: {
     rollupOptions: {
@@ -18,5 +23,7 @@ export default defineConfig({
         },
       },
     },
+    cssCodeSplit: true,
+    cssMinify: true,
   },
 });
