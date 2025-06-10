@@ -48,12 +48,6 @@ const DetectionContainer = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        padding: {
-          xs: 2,
-          sm: '16px 10em 16px 10em',
-          md: '16px 18em 16px 18em',
-          lg: '2em 24em 2em 24em',
-        },
       }}
     >
       <DetectionHeader />

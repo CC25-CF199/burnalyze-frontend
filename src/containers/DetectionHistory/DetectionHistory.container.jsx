@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getAllUserHistories } from '../../redux/detectionHistory';
@@ -19,11 +19,9 @@ const DetectionHistoryContainer = () => {
   return (
     <Box
       sx={{
-        padding: {
-          xs: 2,
-          sm: '16px 10em 16px 10em',
-          md: '16px 12em 16px 12em',
-        },
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 1,
       }}
     >
       {isAuth ? (

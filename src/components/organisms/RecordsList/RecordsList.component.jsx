@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Skeleton } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 
@@ -28,8 +28,7 @@ const RecordsList = () => {
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'center',
-            flexDirection: { xs: 'column', md: 'row' },
+            flexDirection: 'column',
             gap: 2,
           }}
         >
