@@ -1,4 +1,20 @@
 const styleConfig = {
+  oAuth: {
+    sx: {
+      height: { xs: '24px', md: '32px' },
+    },
+  },
+  loginPageLogo: {
+    sx: {
+      height: {
+        xs: 40,
+        sm: 42,
+        md: 48,
+        lg: 50,
+      },
+      marginBlock: 5,
+    },
+  },
   navbarLogoDesktop: {
     sx: {
       height: 32,
@@ -33,38 +49,28 @@ const styleConfig = {
   },
   detectionHeaderImg: {
     sx: {
-      height: 124,
+      height: { xs: 90, sm: 100, md: 160 },
       width: 'auto',
       mb: 1,
     },
   },
-  // Landing page specific styles
-  landingLogo: {
+  scanCompleteUserImg: {
     sx: {
-      height: 28,
+      height: { xs: '56px' },
+      width: { xs: '56px' },
+      borderRadius: '8px',
+    },
+  },
+  scanCompleteIcon: {
+    sx: {
+      height: { xs: '36px' },
       width: 'auto',
     },
   },
-  landingHeroImage: {
+  historiesThumbnail: {
     sx: {
-      height: { xs: 160, md: 192 },
-      width: 'auto',
-      objectFit: 'contain',
-    },
-  },
-  featureIcon: {
-    sx: {
-      width: 24,
-      height: 24,
-      mb: 1,
-    },
-  },
-  factIcon: {
-    sx: {
-      width: 32,
-      height: 32,
-      mx: 'auto',
-      mb: 1,
+      height: { xs: 40, md: 60 },
+      width: { xs: 40, md: 60 },
     },
   },
 };

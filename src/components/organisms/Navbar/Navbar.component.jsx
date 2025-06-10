@@ -1,14 +1,25 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
-import { Container, AppBar, Box, Toolbar, IconButton } from '@mui/material';
+import {
+  Container,
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Button,
+} from '@mui/material';
+import { useSelector } from 'react-redux';
 
 import burnalyzeLogo from '../../../assets/burnalyze_logo.png';
-import { Image, Button } from '../../atoms';
+import { Image } from '../../atoms';
+import { UserMenuComponent } from '../../organisms';
 import { navItems } from '../../../constants/Component.constants';
 
 function ResponsiveAppBar({ handleOpenDrawer }) {
+  const isAuth = useSelector(state => state.auth.isLoggedIn);
+
   return (
-    <AppBar position="static" color="secondary">
+    <AppBar position="sticky" color="secondary">
       <Container
         maxWidth="xl"
         sx={{
@@ -19,7 +30,7 @@ function ResponsiveAppBar({ handleOpenDrawer }) {
         <Toolbar
           disableGutters
           sx={{
-            justifyContent: { xs: 'space-between', md: 'space-between' },
+            justifyContent: 'space-between',
           }}
         >
           {/* Desktop Logo */}
@@ -37,8 +48,6 @@ function ResponsiveAppBar({ handleOpenDrawer }) {
               <MenuIcon />
             </IconButton>
           </Box>
-          {/* Mobile logo */}
-          <Image src={burnalyzeLogo} type="navbarLogoMobile" />
           {/* Spacer for mobile layout */}
           <Box sx={{ width: 40, display: { xs: 'block', md: 'none' } }} />
           {/* Desktop Button Page */}
@@ -58,24 +67,36 @@ function ResponsiveAppBar({ handleOpenDrawer }) {
             }}
           >
             {navItems.map(item => (
-              <NavLink
+              <Button
+                component={NavLink}
                 key={item.title}
                 to={item.linkTo}
-                style={({ isActive }) => ({
-                  color: 'inherit',
-                  fontWeight: 500,
-                  textDecoration: 'none',
-                  position: 'relative',
-                  '&::after': {
-                    transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
+                sx={{
+                  color: 'black',
+                  '&:active': {
+                    color: 'primary.main',
                   },
-                })}
+                }}
               >
                 {item.title}
-              </NavLink>
+              </Button>
             ))}
           </Box>
-          <Button items="Sign In" type="signInDesktop" />
+          {isAuth ? (
+            <UserMenuComponent />
+          ) : (
+            <Button
+              component={NavLink}
+              to="/login"
+              sx={{
+                display: { xs: 'none', sm: 'block' },
+                color: 'white',
+                backgroundColor: 'primary.main',
+              }}
+            >
+              Sign In
+            </Button>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

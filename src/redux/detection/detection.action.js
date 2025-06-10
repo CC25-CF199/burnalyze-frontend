@@ -5,9 +5,9 @@ const requestURL = 'http://localhost:3000/v1/detection/predict';
 
 export const callDetectionAPI = createAsyncThunk(
   'detection/predict',
-  async (data, _thunkAPI) => {
+  async ({ data, config }, _thunkAPI) => {
     try {
-      const response = await axios.post(requestURL, data);
+      const response = await axios.post(requestURL, data, config);
 
       return response.data;
     } catch (error) {

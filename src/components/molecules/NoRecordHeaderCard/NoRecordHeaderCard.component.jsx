@@ -1,9 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import SickIcon from '@mui/icons-material/Sick';
+import { NavLink } from 'react-router-dom';
 
 import { Button } from '../../atoms';
 
-const NoRecordCard = () => {
+const NoRecordHeaderCard = ({ items, hasBtn }) => {
   return (
     <Box
       sx={{
@@ -14,10 +15,18 @@ const NoRecordCard = () => {
         boxShadow: 4,
         padding: 2,
         borderRadius: '8px',
+        maxWidth: '500px',
+        marginInline: 'auto',
       }}
     >
       <SickIcon sx={{ color: '#FF6B6B', fontSize: '40px' }} />
-      <Box>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 1,
+        }}
+      >
         <Typography
           sx={{
             fontSize: { xs: '18px' },
@@ -34,12 +43,16 @@ const NoRecordCard = () => {
             textAlign: 'center',
           }}
         >
-          Masuk atau Daftarkan akunmu untuk mulai melihat riwayat deteksi
+          {items}
         </Typography>
       </Box>
-      <Button items="Sign In" type="signInMobile" />
+      {hasBtn && (
+        <NavLink to="/login">
+          <Button items="Sign In" type="signInMobile" />
+        </NavLink>
+      )}
     </Box>
   );
 };
 
-export default NoRecordCard;
+export default NoRecordHeaderCard;

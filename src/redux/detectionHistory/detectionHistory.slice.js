@@ -19,7 +19,7 @@ export const detectionHistorySlice = createSlice({
     });
     builder.addCase(getAllUserHistories.fulfilled, (state, action) => {
       state.loading = false;
-      state.histories = action.payload;
+      state.histories = action.payload.data;
     });
     builder.addCase(getAllUserHistories.rejected, (state, action) => {
       state.loading = false;
