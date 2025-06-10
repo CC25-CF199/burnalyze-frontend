@@ -1280,7 +1280,7 @@ const LandingContainer = () => {
                       color: '#1f1f1f',
                     }}
                   >
-                    Apakah BurnAlyze dapat digunakan secara gratis
+                    Apakah BurnAlyze dapat digunakan secara gratis?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{ pt: 0 }}>
@@ -1325,7 +1325,7 @@ const LandingContainer = () => {
                       color: '#1f1f1f',
                     }}
                   >
-                    Apakah BurnAlyze bisa membantu penanganan pertama luka bakar
+                    Apakah BurnAlyze bisa membantu penanganan pertama luka bakar?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{ pt: 0 }}>
