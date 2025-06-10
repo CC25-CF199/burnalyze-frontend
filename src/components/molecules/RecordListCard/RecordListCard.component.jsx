@@ -19,8 +19,11 @@ const RecordListCard = ({ sortedHistories }) => {
   ) : (
     <Box
       sx={{
+        maxHeight: '500px',
         display: 'flex',
         flexDirection: 'column',
+        padding: 1,
+        overflow: { md: 'auto' },
         gap: 1,
       }}
     >

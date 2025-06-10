@@ -33,9 +33,15 @@ const DetectionResultContainer = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '10px',
+        padding: {
+          xs: 2,
+          sm: '16px 10em 16px 10em',
+          md: '16px 18em 16px 18em',
+        },
       }}
     >
       <DetectionResultHeader />
+
       <DetectionResultCard
         imgSrc={imgSrc}
         woundClass={woundClass}

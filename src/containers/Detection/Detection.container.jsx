@@ -48,6 +48,11 @@ const DetectionContainer = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        padding: {
+          xs: 2,
+          sm: '16px 10em 16px 10em',
+          md: '16px 18em 16px 18em',
+        },
       }}
     >
       <DetectionHeader />
@@ -64,9 +69,11 @@ const DetectionContainer = () => {
           component={NavLink}
           to="camera"
           variant="contained"
-          startIcon={<PhotoCamera />}
           disabled={uploadedImage}
           sx={{
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
             width: { xs: '100%', lg: 'auto' },
             minWidth: { lg: '200px' },
             color: '#FFF',
@@ -75,6 +82,7 @@ const DetectionContainer = () => {
             boxShadow: 3,
           }}
         >
+          <PhotoCamera sx={{ fontSize: { xs: 20, md: 40 } }} />
           Ambil Gambar
         </Button>
         <Typography
