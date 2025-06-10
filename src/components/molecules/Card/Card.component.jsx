@@ -13,7 +13,6 @@ const Card = ({ title, content }) => {
         paddingBlock: 1,
         paddingInline: 2,
         boxShadow: 3,
-        maxWidth: '640px',
       }}
     >
       <Info sx={{ mr: 2 }} />
