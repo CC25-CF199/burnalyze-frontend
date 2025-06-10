@@ -1,7 +1,7 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 import {
-  ExampleContainer,
+  LandingContainer,
   DetectionContainer,
   DetectionResultContainer,
   DetectionHistoryContainer,
@@ -39,7 +39,7 @@ const Router = createBrowserRouter([
     children: [
       {
         path: '/',
-        Component: ExampleContainer,
+        Component: LandingContainer,
       },
       {
         path: 'education',

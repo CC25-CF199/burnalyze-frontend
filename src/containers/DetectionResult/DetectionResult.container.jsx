@@ -29,19 +29,31 @@ const DetectionResultContainer = () => {
   return (
     <Box
       sx={{
-        height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        gap: '10px',
+        gap: 2,
+        padding: {
+          xs: 2,
+          sm: '16px 10em 16px 10em',
+          md: '16px 18em 16px 18em',
+        },
       }}
     >
       <DetectionResultHeader />
-      <DetectionResultCard
-        imgSrc={imgSrc}
-        woundClass={woundClass}
-        desc={desc}
-      />
-      <DetectionResultAccordion treatments={treatments} />
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: 1,
+        }}
+      >
+        <DetectionResultCard
+          imgSrc={imgSrc}
+          woundClass={woundClass}
+          desc={desc}
+        />
+        <DetectionResultAccordion treatments={treatments} />
+      </Box>
       <Button
         component={NavLink}
         to="/detection"

@@ -27,6 +27,11 @@ const HistoryDetails = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: 2,
+        padding: {
+          xs: 2,
+          sm: '16px 10em 16px 10em',
+          md: '16px 18em 16px 18em',
+        },
       }}
     >
       <Typography
@@ -45,14 +50,20 @@ const HistoryDetails = () => {
           <Skeleton variant="rounded" height={70} />
         </>
       ) : (
-        <>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: 1,
+          }}
+        >
           <DetectionResultCard
             imgSrc={details?.image_url}
             woundClass={details?.class}
             desc={details?.desc}
           />
           <DetectionResultAccordion treatments={details?.treatments} />
-        </>
+        </Box>
       )}
       <Button
         component={NavLink}

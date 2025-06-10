@@ -8,12 +8,15 @@ const DetectionResultCard = ({ imgSrc, woundClass, desc }) => {
   return (
     <Box
       sx={{
+        flex: '0 0 50%',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
         gap: { xs: '10px', md: '20px' },
         boxShadow: 3,
         borderRadius: '8px',
         padding: { xs: '12px', md: '24px' },
+        height: 'fit-content',
       }}
     >
       <Box

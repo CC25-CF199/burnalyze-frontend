@@ -1,4 +1,4 @@
-export * from './Example';
+export * from './Landing';
 export * from './Detection';
 export * from './DetectionResult';
 export * from './DetectionHistory';

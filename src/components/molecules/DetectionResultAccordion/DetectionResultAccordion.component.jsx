@@ -15,6 +15,9 @@ const DetectionResultAccordion = ({ treatments }) => {
   return (
     <Accordion
       sx={{
+        flex: { xs: '1 1 auto', md: '0 0 50%' },
+        alignSelf: 'flex-start',
+        height: 'fit-content',
         boxShadow: 4,
         borderRadius: '8px !important', // Force border radius
         '&.Mui-expanded': {
