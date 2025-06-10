@@ -1,6 +1,18 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
-import { ExampleContainer } from '../containers';
+import {
+  LandingContainer,
+  DetectionContainer,
+  DetectionResultContainer,
+  DetectionHistoryContainer,
+  HistoryDetailsContainer,
+  CameraContainer,
+  LoginContainer,
+  RegisterContainer,
+  EducationContainer,
+} from '../containers';
+
+import { MainLayout, ProtectedResult } from '../components/templates';
 
 const Router = createBrowserRouter([
   {
@@ -10,20 +22,62 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'Example',
-        Component: ExampleContainer,
+        path: '/login',
+        Component: LoginContainer,
+      },
+      {
+        path: '/register',
+        Component: RegisterContainer,
       },
     ],
   },
   {
     element: (
       // Protected Route
-      <Outlet />
+      <MainLayout />
     ),
     children: [
       {
         path: '/',
-        Component: ExampleContainer,
+        Component: LandingContainer,
+      },
+      {
+        path: 'education',
+        Component: EducationContainer,
+      },
+      {
+        path: 'detection',
+        children: [
+          {
+            path: '',
+            Component: DetectionContainer,
+          },
+          {
+            path: 'camera',
+            Component: CameraContainer,
+          },
+          {
+            path: 'result',
+            element: (
+              <ProtectedResult>
+                <DetectionResultContainer />
+              </ProtectedResult>
+            ),
+          },
+          {
+            path: 'history',
+            children: [
+              {
+                path: '',
+                Component: DetectionHistoryContainer,
+              },
+              {
+                path: 'details/:id',
+                Component: HistoryDetailsContainer,
+              },
+            ],
+          },
+        ],
       },
     ],
   },
