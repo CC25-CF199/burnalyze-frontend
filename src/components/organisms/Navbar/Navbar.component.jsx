@@ -48,8 +48,7 @@ function ResponsiveAppBar({ handleOpenDrawer }) {
               <MenuIcon />
             </IconButton>
           </Box>
-          {/* Spacer for mobile layout */}
-          <Box sx={{ width: 40, display: { xs: 'block', md: 'none' } }} />
+          <Image src={burnalyzeLogo} type="navbarLogoMobile" />
           {/* Desktop Button Page */}
           <Box
             sx={{

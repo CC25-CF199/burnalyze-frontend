@@ -1,3 +1,9 @@
+import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { NavLink } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -18,21 +24,17 @@ import {
   Instagram,
   X,
   ExpandMore,
+  ArrowDownward,
+  ArrowUpwardSharp,
 } from '@mui/icons-material';
 
 import { Image } from '../../components/atoms';
-import { useState } from 'react';
 import detectionIcon from '../../assets/icons/detection.png';
 import historyIcon from '../../assets/icons/history.png';
 import educationIcon from '../../assets/icons/education.png';
-import { ArrowDownward, ArrowUpwardSharp } from '@mui/icons-material';
 import FireIcon from '../../assets/icons/FireIcon';
 import ShiledIcon from '../../assets/icons/ShiledIcon';
 import PeopleIcon from '../../assets/icons/PeopleIcon';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
 import RiwayatDeteksiIcon from '../../assets/icons/RiwayatDeteksiIcon';
 import PanduanPenangananIcon from '../../assets/icons/PanduanPenangananIcon';
 import PrivasiPenggunaIcon from '../../assets/icons/PrivasiPenggunaIcon';
@@ -52,7 +54,7 @@ const LandingContainer = () => {
     {
       icon: historyIcon,
       title: 'Riwayat',
-      link: '/history',
+      link: 'detection/history',
     },
     {
       icon: educationIcon,
@@ -219,6 +221,8 @@ const LandingContainer = () => {
             >
               {featureCards.map((feature, index) => (
                 <Box
+                  component={NavLink}
+                  to={feature.link}
                   key={index}
                   sx={{
                     textAlign: 'center',
@@ -308,16 +312,17 @@ const LandingContainer = () => {
             px: 2,
             py: 2.5,
             borderRadius: '20px',
-            mt: -3,
             mx: 'auto',
             maxWidth: 360,
             boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
             position: 'relative',
-            zIndex: 299,
+            zIndex: 2,
           }}
         >
           {featureCards.map((feature, index) => (
             <Box
+              component={NavLink}
+              to={feature.link}
               key={index}
               sx={{
                 flex: 1,
@@ -963,7 +968,7 @@ const LandingContainer = () => {
                       color: '#1f1f1f',
                     }}
                   >
-                    Apakah BurnAlyze dapat digunakan secara gratis
+                    Apakah BurnAlyze dapat digunakan secara gratis?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{ pt: 0 }}>
@@ -1008,7 +1013,8 @@ const LandingContainer = () => {
                       color: '#1f1f1f',
                     }}
                   >
-                    Apakah BurnAlyze bisa membantu penanganan pertama luka bakar
+                    Apakah BurnAlyze bisa membantu penanganan pertama luka
+                    bakar?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{ pt: 0 }}>
