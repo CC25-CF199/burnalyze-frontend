@@ -1,9 +1,15 @@
 import { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
 import { Box, Button, CircularProgress } from '@mui/material';
-import { Camera, Refresh, Psychology } from '@mui/icons-material';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  Camera,
+  Refresh,
+  Psychology,
+  FlipCameraAndroid,
+} from '@mui/icons-material';
+import { message } from 'antd';
 
 import dataURLtoFile from '../../../utils/dataURLtoFile';
 import generateRandomFilename from '../../../utils/generateRandonFilename';
@@ -18,6 +24,17 @@ const CameraComponent = () => {
   const [imgSrc, setImgSrc] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [facingMode, setFacingMode] = useState('environtment');
+  const [isCameraError, setCameraError] = useState(null);
+
+  const toggleCamera = () => {
+    if (isCameraError) {
+      message.error('Perangkat Anda hanya memiliki satu kamera');
+      return;
+    }
+
+    setFacingMode(prevMode => (prevMode === 'user' ? 'environtment' : 'user'));
+  };
 
   const capture = useCallback(async () => {
     const imageSrc = camRef.current.getScreenshot();
@@ -36,6 +53,15 @@ const CameraComponent = () => {
   const handleUserMedia = useCallback(() => {
     setIsLoading(false);
   }, []);
+
+  const handleUserMediaError = error => {
+    if (error.name === 'OverconstrainedError')
+      setFacingMode(prevMode =>
+        prevMode === 'user' ? 'environtment' : 'user'
+      );
+
+    setCameraError(error);
+  };
 
   const handleUploadImage = async () => {
     try {
@@ -65,7 +91,6 @@ const CameraComponent = () => {
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
-        width: 'fit-content',
       }}
     >
       {!imgSrc ? (
@@ -88,32 +113,53 @@ const CameraComponent = () => {
             ref={camRef}
             screenshotFormat="image/jpeg"
             onUserMedia={handleUserMedia}
-            mirrored={true}
+            onUserMediaError={handleUserMediaError}
+            mirrored={facingMode === 'user'}
+            videoConstraints={{ facingMode: { exact: facingMode } }}
             style={{
               opacity: isLoading ? 0.5 : 1,
               borderRadius: '8px',
             }}
           />
-          <Button
-            variant="contained"
-            onClick={capture}
-            startIcon={<Camera />}
-            disabled={isLoading}
+          <Box
             sx={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
               position: 'absolute',
               bottom: '16px',
               left: '50%',
               transform: 'translateX(-50%)',
-              width: '80%',
-              color: '#FFF',
-              fontWeight: 600,
-              borderRadius: '8px',
-              boxShadow: 3,
               zIndex: 1,
             }}
           >
-            Ambil Foto
-          </Button>
+            <Button
+              variant="contained"
+              onClick={capture}
+              startIcon={<Camera />}
+              disabled={isLoading}
+              sx={{
+                color: '#FFF',
+                fontWeight: 600,
+                borderRadius: '8px 0 0 8px',
+              }}
+            >
+              Ambil Foto
+            </Button>
+            <Button
+              variant="contained"
+              onClick={toggleCamera}
+              disabled={isLoading}
+              sx={{
+                minWidth: 'auto',
+                color: '#FFF',
+                fontWeight: 600,
+                borderRadius: '0 8px 8px 0',
+              }}
+            >
+              <FlipCameraAndroid />
+            </Button>
+          </Box>
         </>
       ) : (
         <>
