@@ -54,6 +54,7 @@ const HistoryDetails = () => {
           <DetectionResultCard
             imgSrc={details?.image_url}
             woundClass={details?.class}
+            bodyPart={details?.body_part}
             desc={details?.desc}
           />
           <DetectionResultAccordion treatments={details?.treatments} />
