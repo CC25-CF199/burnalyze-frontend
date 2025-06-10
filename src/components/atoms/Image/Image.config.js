@@ -73,6 +73,12 @@ const styleConfig = {
       width: { xs: 40, md: 60 },
     },
   },
+  heroDoctor: {
+    sx: {
+      height: 'auto',
+      width: 'auto',
+    },
+  },
 };
 
 export { styleConfig };

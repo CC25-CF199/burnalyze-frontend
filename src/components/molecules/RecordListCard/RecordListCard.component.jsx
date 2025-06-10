@@ -11,11 +11,18 @@ const RecordListCard = ({ sortedHistories }) => {
   const isCallLoading = useSelector(state => state.detectionHistory.loading);
 
   return isCallLoading ? (
-    <>
-      <Skeleton variant="rounded" animation="wave" height={50} />
-      <Skeleton variant="rounded" animation="wave" height={50} />
-      <Skeleton variant="rounded" animation="wave" height={50} />
-    </>
+    <Box
+      sx={{
+        display: 'flex',
+        gap: 2,
+        flexDirection: 'column',
+        width: '100%',
+      }}
+    >
+      <Skeleton variant="rounded" animation="wave" height={50} width={'100%'} />
+      <Skeleton variant="rounded" animation="wave" height={50} width={'100%'} />
+      <Skeleton variant="rounded" animation="wave" height={50} width={'100%'} />
+    </Box>
   ) : (
     <Box
       sx={{
