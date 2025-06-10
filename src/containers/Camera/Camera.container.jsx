@@ -11,7 +11,13 @@ const CameraContainer = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: { xs: 'space-evenly', lg: 'space-between' },
+        justifyContent: 'center',
+        gap: 1,
+        padding: {
+          xs: 2,
+          sm: '16px 10em 16px 10em',
+          md: '16px 18em 16px 18em',
+        },
       }}
     >
       <CameraComponent />
