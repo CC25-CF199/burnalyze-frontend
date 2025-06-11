@@ -64,9 +64,3 @@ BurnAlyze adalah aplikasi web berbasis AI untuk menganalisis derajat luka bakar 
 ```
 
 ## Screenshot
-
-<!-- Ganti/Update link screenshot di bawah ini sesuai tampilan website Anda -->
-
-| Beranda                                     | Laporkan                                  | Peta Sebaran                                     | Edukasi                                           | Profil                                |
-| ------------------------------------------- | ----------------------------------------- | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------- |
-| ![Beranda](./public/images/screenshot1.png) | ![Laporkan](./public/images/laporkan.png) | ![Peta Sebaran](./public/images/screenshot4.png) | ![Kenali Sampahmu](./public/images/education.png) | ![Profil](./public/images/profil.png) |
