@@ -22,3 +22,23 @@ export const getHistoryById = createAsyncThunk(
     }
   }
 );
+
+export const deleteSingleHistory = createAsyncThunk(
+  'detection/delete',
+  async (historyId, _thunkAPI) => {
+    try {
+      const response = await axios.post(`${requestURL}/${historyId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+        },
+      });
+
+      return response;
+    } catch (error) {
+      console.error(error);
+      return _thunkAPI.rejectWithValue(
+        error instanceof Error ? error.message : error
+      );
+    }
+  }
+);

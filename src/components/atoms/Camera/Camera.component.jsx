@@ -94,7 +94,7 @@ const CameraComponent = () => {
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
-        maxWidth: '640px',
+        width: '100%',
       }}
     >
       {!imgSrc ? (

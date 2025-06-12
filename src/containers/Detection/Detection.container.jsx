@@ -4,6 +4,7 @@ import { PhotoCamera } from '@mui/icons-material';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { CustomTab, CameraComponent } from '../../components/atoms';
 import { UploadFileComponent } from '../../components/molecules';
 import { Card } from '../../components/molecules';
 import { DetectionHeader } from '../../components/organisms';
@@ -16,6 +17,7 @@ const DetectionContainer = () => {
   const isAuth = useSelector(state => state.auth.isLoggedIn);
   const isCallLoading = useSelector(state => state.detection.loading);
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
 
   const handleUploadImage = async () => {
     try {
@@ -44,7 +46,7 @@ const DetectionContainer = () => {
   return (
     <Box
       sx={{
-        minHeight: '100%',
+        height: { xs: '100%', sm: 'fit-content' },
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -52,57 +54,49 @@ const DetectionContainer = () => {
           xs: 2,
           sm: '16px 10em 16px 10em',
           md: '16px 18em 16px 18em',
+          lg: '16px 26em 16px 26em',
         },
+        gap: { sm: '10px' },
       }}
     >
       <DetectionHeader />
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: { md: 'center' },
-          justifyContent: { lg: 'space-around' },
-          gap: 2,
-        }}
-      >
-        <Button
-          component={NavLink}
-          to="camera"
-          variant="contained"
-          disabled={uploadedImage}
+      <Box>
+        <Box
           sx={{
-            height: '100%',
             display: 'flex',
-            flexDirection: 'column',
-            width: { xs: '100%', lg: 'auto' },
-            minWidth: { lg: '200px' },
-            color: '#FFF',
-            fontWeight: 600,
-            borderRadius: '8px',
-            boxShadow: 3,
+            gap: 1,
+            mb: 1,
+            backgroundColor: 'background.paper',
+            borderRadius: '12px',
           }}
         >
-          <PhotoCamera sx={{ fontSize: { xs: 20, md: 40 } }} />
-          Ambil Gambar
-        </Button>
-        <Typography
-          sx={{
-            textAlign: 'center',
-            fontWeight: 500,
-          }}
-        >
-          Atau
-        </Typography>
-        <UploadFileComponent
-          uploadedImage={uploadedImage}
-          setUploadedImage={setUploadedImage}
-          handleUploadImage={handleUploadImage}
-          isCallLoading={isCallLoading}
-        />
+          <CustomTab
+            label="Unggah Gambar"
+            selected={activeTab === 0}
+            onClick={() => setActiveTab(0)}
+          />
+          <CustomTab
+            label="Ambil Gambar"
+            selected={activeTab === 1}
+            onClick={() => setActiveTab(1)}
+          />
+        </Box>
+
+        {/* Tab panels */}
+        {activeTab === 0 ? (
+          <UploadFileComponent
+            uploadedImage={uploadedImage}
+            setUploadedImage={setUploadedImage}
+            handleUploadImage={handleUploadImage}
+            isCallLoading={isCallLoading}
+          />
+        ) : (
+          <CameraComponent />
+        )}
       </Box>
       <Card
         title="Cara Penggunaan"
-        content="Arahkan kamera ponsel Anda ke bagian tubuh yang terkena luka bakar atau unggah foto luka bakar anda. AI akan menganalisis dan mengklasifikasikan luka bakar tersebut untuk Anda."
+        content="Arahkan kamera perangkat Anda ke bagian tubuh yang terkena luka bakar atau unggah foto luka bakar anda. AI akan menganalisis dan mengklasifikasikan luka bakar tersebut untuk Anda."
       />
     </Box>
   );

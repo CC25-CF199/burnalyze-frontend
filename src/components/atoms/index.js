@@ -6,3 +6,4 @@ export * from './DragFileUpload';
 export * from './Input';
 export * from './InputLabel';
 export * from './FormInput';
+export * from './CustomTab';
