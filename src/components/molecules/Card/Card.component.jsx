@@ -20,7 +20,7 @@ const Card = ({ title, content }) => {
         <Typography
           variant="subtitle2"
           sx={{
-            fontSize: { xs: '16px', md: '16px' },
+            fontSize: { xs: '14px', md: '16px' },
             fontWeight: 600,
             mb: 0.2,
           }}
