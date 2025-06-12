@@ -18,7 +18,7 @@ const DetectionHeader = () => {
           variant="h6"
           component="h1"
           sx={{
-            fontSize: { xs: '14px', sm: '18px', md: '24px' },
+            fontSize: { xs: '14px', sm: '18px', md: '18px', lg: '20px' },
             color: 'primary.main',
             fontWeight: 700,
             lineHeight: '1.2',
@@ -30,7 +30,7 @@ const DetectionHeader = () => {
         <Typography
           variant="body2"
           sx={{
-            fontSize: { xs: '12px', sm: '14px', md: '18px' },
+            fontSize: { xs: '12px', sm: '14px', md: '14px', lg: '16px' },
             lineHeight: '1.2',
           }}
         >
