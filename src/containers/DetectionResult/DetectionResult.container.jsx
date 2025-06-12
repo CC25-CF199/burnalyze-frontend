@@ -40,6 +40,7 @@ const DetectionResultContainer = () => {
           xs: 2,
           sm: '16px 10em 16px 10em',
           md: '16px 18em 16px 18em',
+          lg: '16px 26em 16px 26em',
         },
       }}
     >

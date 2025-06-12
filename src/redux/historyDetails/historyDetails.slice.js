@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getHistoryById } from './historyDetails.action';
+import { getHistoryById, deleteSingleHistory } from './historyDetails.action';
 import reducers from './historyDetails.reducer';
 
 const initialState = {
@@ -22,6 +22,19 @@ export const historyDetailsSlice = createSlice({
       state.history = action.payload.data;
     });
     builder.addCase(getHistoryById.rejected, (state, action) => {
+      state.loading = false;
+      state.error =
+        action.payload && typeof action.payload === 'string'
+          ? action.payload
+          : 'An error occured';
+    });
+    builder.addCase(deleteSingleHistory.pending, state => {
+      state.loading = true;
+    });
+    builder.addCase(deleteSingleHistory.fulfilled, state => {
+      state.loading = false;
+    });
+    builder.addCase(deleteSingleHistory.rejected, (state, action) => {
       state.loading = false;
       state.error =
         action.payload && typeof action.payload === 'string'
