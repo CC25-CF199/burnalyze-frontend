@@ -56,7 +56,7 @@ const DetectionContainer = () => {
           md: '16px 18em',
           lg: '16px 26em',
         },
-        gap: { sm: '10px' },
+        gap: 2,
       }}
     >
       <DetectionHeader />
