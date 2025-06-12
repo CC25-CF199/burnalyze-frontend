@@ -51,10 +51,10 @@ const DetectionContainer = () => {
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: {
-          xs: 2,
-          sm: '16px 10em 16px 10em',
-          md: '16px 18em 16px 18em',
-          lg: '16px 26em 16px 26em',
+          xs: '2em 1em',
+          sm: '16px 10em',
+          md: '16px 18em',
+          lg: '16px 26em',
         },
         gap: { sm: '10px' },
       }}
