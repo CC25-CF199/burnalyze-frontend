@@ -9,7 +9,7 @@ const UploadFile = ({
   isCallLoading,
 }) => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
       <DragFileUploadComponent
         uploadedImage={uploadedImage}
         setUploadedImage={setUploadedImage}
