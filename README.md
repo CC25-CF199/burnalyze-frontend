@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/CC25-CF199/.github/blob/master/assets/icon.png" alt="Logo BurnAlyze" style="width: 40%; margin-bottom: 24px;">
+  <img src="https://github.com/CC25-CF199/.github/blob/master/profile/assets/icon.png" alt="Logo BurnAlyze" style="width: 40%; margin-bottom: 24px;">
 
   <h2 style="margin-top: 0; color: #2e7d32; font-size: 2rem; font-weight: bold; text-shadow: 1px 1px 6px #b2dfdb; letter-spacing: 1px;">BurnAlyze: Smart Detection and Classification of Skin Burns</h2>
 </div>

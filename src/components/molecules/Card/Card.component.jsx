@@ -20,7 +20,7 @@ const Card = ({ title, content }) => {
         <Typography
           variant="subtitle2"
           sx={{
-            fontSize: { xs: '14px', md: '14px' },
+            fontSize: { xs: '16px', md: '16px' },
             fontWeight: 600,
             mb: 0.2,
           }}
@@ -29,7 +29,7 @@ const Card = ({ title, content }) => {
         </Typography>
         <Typography
           variant="body2"
-          sx={{ fontSize: { xs: '10px', md: '12px' } }}
+          sx={{ fontSize: { xs: '12px', md: '14px' } }}
         >
           {content}
         </Typography>

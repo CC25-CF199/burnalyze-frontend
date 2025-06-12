@@ -35,7 +35,7 @@ const DragFileUploadComponent = ({ setUploadedImage }) => {
       sx={{
         '.ant-upload-drag': {
           height: {
-            xs: '120px', // mobile height
+            xs: '250px', // mobile height
             sm: '180px', // tablet height
             md: '200px', // desktop height
           },
