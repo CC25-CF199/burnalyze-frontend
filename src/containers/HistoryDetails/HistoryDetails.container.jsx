@@ -89,20 +89,6 @@ const HistoryDetails = () => {
         }}
       >
         <Button
-          component={NavLink}
-          to={`/detection/history`}
-          variant="contained"
-          size="medium"
-          loading={isCallLoading}
-          sx={{
-            height: '100%',
-            width: '100%',
-            color: 'white',
-          }}
-        >
-          Kembali
-        </Button>
-        <Button
           variant="contained"
           size="medium"
           color="error"
@@ -116,6 +102,20 @@ const HistoryDetails = () => {
           }}
         >
           Hapus Riwayat
+        </Button>
+        <Button
+          component={NavLink}
+          to={`/detection/history`}
+          variant="contained"
+          size="medium"
+          loading={isCallLoading}
+          sx={{
+            height: '100%',
+            width: '100%',
+            color: 'white',
+          }}
+        >
+          Kembali
         </Button>
       </Box>
     </Box>
