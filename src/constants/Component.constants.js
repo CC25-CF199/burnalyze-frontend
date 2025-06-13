@@ -34,12 +34,12 @@ export const navItems = [
 export const userMenuItems = [
   {
     title: 'Profile',
-    linkTo: '',
+    linkTo: '/user',
     icon: AccountCircle,
   },
   {
     title: 'Logout',
-    linkTo: '',
+    linkTo: '/',
     icon: Logout,
     onClick: () => {
       store.dispatch(logout());

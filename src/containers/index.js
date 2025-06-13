@@ -7,3 +7,4 @@ export * from './Camera';
 export * from './Login';
 export * from './Registration';
 export * from './Education';
+export * from './UserProfile';
