@@ -10,6 +10,7 @@ import {
   LoginContainer,
   RegisterContainer,
   EducationContainer,
+  UserProfileContainer,
 } from '../containers';
 
 import { MainLayout, ProtectedResult } from '../components/templates';
@@ -44,6 +45,10 @@ const Router = createBrowserRouter([
       {
         path: 'education',
         Component: EducationContainer,
+      },
+      {
+        path: 'user/:id',
+        Component: UserProfileContainer,
       },
       {
         path: 'detection',

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import {
   Box,
   Tooltip,
@@ -15,6 +16,7 @@ import { userMenuItems } from '../../../constants/Component.constants';
 
 const UserMenu = () => {
   const username = useSelector(state => state.auth.user.username);
+  const userId = useSelector(state => state.auth.user.userId);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = event => {
@@ -50,13 +52,17 @@ const UserMenu = () => {
       >
         {userMenuItems.map(item => {
           const Icon = item.icon;
+          const menuItemProps = {
+            component: NavLink,
+            to: `${item.linkTo}/${userId}`,
+          };
+
+          if (item.onClick) {
+            menuItemProps.onClick = item.onClick;
+          }
+
           return (
-            <MenuItem
-              key={item.title}
-              onClick={() => {
-                item.onClick();
-              }}
-            >
+            <MenuItem {...menuItemProps} key={item.title}>
               <ListItemIcon>
                 <Icon />
               </ListItemIcon>

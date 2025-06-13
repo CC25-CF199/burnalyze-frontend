@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const requestURL = `${import.meta.env.VITE_BURNALYZE_API}/detection/history/details`;
+const requestURL = `${import.meta.env.VITE_BURNALYZE_API}/user`;
 
-export const getHistoryById = createAsyncThunk(
-  'detection/details',
-  async (historyId, _thunkAPI) => {
+export const getUserProfile = createAsyncThunk(
+  'user/profile',
+  async (userId, _thunkAPI) => {
     try {
-      const response = await axios.get(`${requestURL}/${historyId}`, {
+      const response = await axios.get(`${requestURL}/${userId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('authToken')}`,
         },
@@ -23,11 +23,11 @@ export const getHistoryById = createAsyncThunk(
   }
 );
 
-export const deleteSingleHistory = createAsyncThunk(
-  'detection/delete',
-  async (historyId, _thunkAPI) => {
+export const deleteUserAccount = createAsyncThunk(
+  'user/delete',
+  async (userId, _thunkAPI) => {
     try {
-      const response = await axios.delete(`${requestURL}/${historyId}`, {
+      const response = await axios.delete(`${requestURL}/delete/${userId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('authToken')}`,
         },

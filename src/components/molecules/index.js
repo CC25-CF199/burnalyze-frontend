@@ -8,3 +8,7 @@ export * from './LoginForm';
 export * from './RegistrationForm';
 export * from './LatestDetectionCard';
 export * from './RecordListCard';
+export * from './UserProfileHeader';
+export * from './UserProfileMenu';
+export * from './UserProfileButtons';
+export * from './UserProfileModal';
