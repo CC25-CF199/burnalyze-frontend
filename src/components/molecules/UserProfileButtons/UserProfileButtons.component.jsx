@@ -1,7 +1,25 @@
 import { Box, Button } from '@mui/material';
 import { Logout, Delete } from '@mui/icons-material';
+import { useDispatch } from 'react-redux';
+import { message } from 'antd';
+import { useNavigate } from 'react-router-dom';
+
+import { logout } from '../../../redux/auth';
 
 const UserProfileButtons = ({ isCallLoading, onModal }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    try {
+      dispatch(logout());
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+      message.error(error);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -13,6 +31,7 @@ const UserProfileButtons = ({ isCallLoading, onModal }) => {
       <Button
         variant="contained"
         disabled={isCallLoading}
+        onClick={handleLogout}
         startIcon={<Logout />}
         sx={{ color: 'secondary.main', fontWeight: 600, py: 1 }}
       >

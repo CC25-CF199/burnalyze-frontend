@@ -1,6 +1,7 @@
 import { Box, Modal, Typography, Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 
 import { deleteUserAccount } from '../../../redux/userProfile';
 import { logout } from '../../../redux/auth';
@@ -18,6 +19,7 @@ const UserProfileModal = ({ isOpen, handleModal }) => {
       navigate('/');
     } catch (error) {
       console.error(error);
+      message.error(error);
     }
   };
 
