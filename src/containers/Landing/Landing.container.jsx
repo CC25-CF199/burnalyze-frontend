@@ -66,7 +66,7 @@ const LandingContainer = () => {
   const factCards = [
     {
       text: '70% kasus luka bakar rumah tangga',
-      desc: 'terjadi akibat air panas, minyak goreng atau api dapur. Terjadi akibat air panas, minyak goreng, atau api dapur.',
+      desc: 'Terjadi akibat air panas, minyak goreng, atau api dapur.',
       iconType: 'fire',
     },
     {
