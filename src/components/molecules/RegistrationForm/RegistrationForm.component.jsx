@@ -165,7 +165,7 @@ const RegistrationForm = () => {
             {isRegisterError}
           </Alert>
         )}
-        <Button items="Sign In" type="loginBtn" loading={isLoading} />
+        <Button items="Daftar" type="loginBtn" loading={isLoading} />
       </form>
       <Typography
         variant="subtitle2"
@@ -175,7 +175,7 @@ const RegistrationForm = () => {
       >
         Sudah memiliki akun?{' '}
         <NavLink to="/login" className="text-primaryBlue">
-          Daftar
+          Sign In
         </NavLink>
       </Typography>
     </Box>
