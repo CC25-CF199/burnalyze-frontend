@@ -175,7 +175,7 @@ const RegistrationForm = () => {
       >
         Sudah memiliki akun?{' '}
         <NavLink to="/login" className="text-primaryBlue">
-          Sign In
+          Daftar
         </NavLink>
       </Typography>
     </Box>
