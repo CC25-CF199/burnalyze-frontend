@@ -12,3 +12,4 @@ export * from './UserProfileHeader';
 export * from './UserProfileMenu';
 export * from './UserProfileButtons';
 export * from './UserProfileModal';
+export * from './TestimonialCard';
